@@ -109,7 +109,7 @@ export default function HeroSection() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
               <img
                 className="w-full aspect-[4/3] object-contain group-hover:scale-105 transition-transform duration-700"
-                src="/logo-depot.png"
+                src="project/main_image.png"
                 alt="Large professional printing workshop in Kenya with vibrant indoor signage and large format printers "
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
