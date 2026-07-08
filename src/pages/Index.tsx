@@ -8,22 +8,34 @@ import WhyChooseUs from "@/components/Index/WhyChooseUs";
 import ProcessPreview from "@/components/Index/ProcessPreview";
 import PortfolioPreview from "@/components/Index/PortfolioPreview";
 import CtaBanner from "@/components/Index/CtaBanner";
+import { Helmet } from "react-helmet-async";
 
 export default function Index() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Navbar />
-      <main className="flex-grow">
-        <HeroSection />
-        <StatsBar />
-        <AboutPreview />
-        <ServicesOverview />
-        <WhyChooseUs />
-        <ProcessPreview />
-        <PortfolioPreview />
-        <CtaBanner />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Helmet>
+        <title>
+          Depot Covers Company (DCC) — Branding & Printing Solutions Kenya
+        </title>
+        <meta
+          name="description"
+          content="Depot Covers Company (DCC) — Branding & Printing Solutions Kenya"
+        />
+      </Helmet>
+      <div className="flex min-h-screen flex-col">
+        <Navbar />
+        <main className="flex-grow">
+          <HeroSection />
+          <StatsBar />
+          <AboutPreview />
+          <ServicesOverview />
+          <WhyChooseUs />
+          <ProcessPreview />
+          <PortfolioPreview />
+          <CtaBanner />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }

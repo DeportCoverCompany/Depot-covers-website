@@ -6,6 +6,7 @@ import ProcessSection from "@/components/Services/ProcessSection";
 import TestimonialsSection from "@/components/Services/TestimonialsSection";
 import WhyChooseUs from "@/components/Services/WhyChooseUs";
 import ServicesCta from "@/components/Services/ServicesCta";
+import { Helmet } from "react-helmet-async";
 
 const services = [
   {
@@ -125,62 +126,73 @@ const categories = [
 
 export default function Services() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
+    <>
+      <Helmet>
+        <title>
+          Depot Covers Company (DCC) — Branding & Printing Solutions Kenya
+        </title>
+        <meta
+          name="description"
+          content="Depot Covers Company (DCC) — Branding & Printing Solutions Kenya"
+        />
+      </Helmet>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
 
-      <main className="flex-grow">
-        <ServicesHero />
+        <main className="flex-grow">
+          <ServicesHero />
 
-        {/* SECTION 2: Intro & Category Tabs */}
-        <section className="bg-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-10">
-              <p className="text-xl text-foreground/80 leading-relaxed">
-                We provide complete branding and printing solutions tailored to
-                help businesses stand out and grow.
-              </p>
+          {/* SECTION 2: Intro & Category Tabs */}
+          <section className="bg-white py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl mx-auto text-center mb-10">
+                <p className="text-xl text-foreground/80 leading-relaxed">
+                  We provide complete branding and printing solutions tailored
+                  to help businesses stand out and grow.
+                </p>
+              </div>
+
+              {/* Filter Pills (Visual only) */}
+              <div className="flex flex-wrap justify-center gap-3">
+                {categories.map((cat, i) => (
+                  <button
+                    key={cat}
+                    className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                      i === 0
+                        ? "bg-accent border-accent text-white shadow-md"
+                        : "bg-white border-border text-muted-foreground hover:border-accent hover:text-accent"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             </div>
+          </section>
 
-            {/* Filter Pills (Visual only) */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((cat, i) => (
-                <button
-                  key={cat}
-                  className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
-                    i === 0
-                      ? "bg-accent border-accent text-white shadow-md"
-                      : "bg-white border-border text-muted-foreground hover:border-accent hover:text-accent"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+          {/* SECTION 3: Services Grid */}
+          <section className="bg-secondary/30 py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {services.map((service, index) => (
+                  <ServiceCard key={index} {...service} />
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* SECTION 3: Services Grid */}
-        <section className="bg-secondary/30 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <ServiceCard key={index} {...service} />
-              ))}
-            </div>
-          </div>
-        </section>
+          {/* SECTION 4: Process Mini */}
+          <ProcessSection />
 
-        {/* SECTION 4: Process Mini */}
-        <ProcessSection />
+          {/* SECTION 5: Why Choose Us */}
+          <WhyChooseUs />
 
-        {/* SECTION 5: Why Choose Us */}
-        <WhyChooseUs />
+          {/* SECTION 6: Bottom CTA */}
+          <ServicesCta />
+        </main>
 
-        {/* SECTION 6: Bottom CTA */}
-        <ServicesCta />
-      </main>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
