@@ -9,21 +9,25 @@ const projects = [
     title: "Supa Flame Gas Solutions Rebranding",
     category: "Branding",
     img: "/project/portfolio-preview/photo1.jpeg",
+    alt: "Supa Flame Gas Solutions Rebranding",
   },
   {
     title: "Regent Auto Valuers",
     category: "Branding",
     img: "/project/portfolio-preview/photo2.jpeg",
+    alt: "Regent Auto Valuers",
   },
   {
     title: "Olyx Gas Rebranding",
     category: "Branding",
     img: "/project/portfolio-preview/photo3.jpeg",
+    alt: "Olyx Gas Rebranding",
   },
   {
     title: "Otrovato Rebranding",
     category: "Branding",
     img: "/project/portfolio-preview/photo4.jpeg",
+    alt: "Otrovato Rebranding",
   },
 ];
 
@@ -74,6 +78,7 @@ export default function PortfolioPreview() {
                 exit={{ opacity: 0, scale: 1.02 }}
                 transition={{ duration: 0.5 }}
                 className="absolute inset-0 w-full h-full object-cover"
+                alt={projects[index].alt}
               />
             </AnimatePresence>
 

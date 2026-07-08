@@ -23,7 +23,11 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
             >
               {/* Image Container */}
               <div className="aspect-[4/5] overflow-hidden">
-                <img src={project.img_url} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <img
+                  src={project.img_url}
+                  alt={`${project.title} - ${project.category}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
               </div>
 
               {/* Category Badge - Overlay Top Left */}

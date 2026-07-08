@@ -10,12 +10,22 @@ interface ServiceCardProps {
   features: string[];
 }
 
-export default function ServiceCard({ name, category, description, img_url, features }: ServiceCardProps) {
+export default function ServiceCard({
+  name,
+  category,
+  description,
+  img_url,
+  features,
+}: ServiceCardProps) {
   return (
     <div className="group bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
       {/* Image Header */}
       <div className="relative h-56 overflow-hidden">
-        <img src={img_url} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+        <img
+          src={img_url}
+          alt={name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
         <div className="absolute top-4 left-4">
           <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-primary font-bold text-[10px] uppercase tracking-wider rounded-full shadow-sm">
             {category}
@@ -35,7 +45,10 @@ export default function ServiceCard({ name, category, description, img_url, feat
         {/* Feature Bullets */}
         <ul className="space-y-2.5 mb-8">
           {features.map((feature, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm text-foreground/80">
+            <li
+              key={i}
+              className="flex items-start gap-2.5 text-sm text-foreground/80"
+            >
               <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Check className="w-3 h-3 text-accent" />
               </div>
