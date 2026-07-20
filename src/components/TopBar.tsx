@@ -48,9 +48,12 @@ export default function TopBar() {
             </div>
 
             <div>
-              <p className="font-semibold uppercase text-blue-700">
+              <a
+                href="mailto:depotcovers001@gmail.com"
+                className="cursor-pointer font-semibold uppercase text-blue-700 hover:text-[hsl(25,95%,53%)] transition-colors"
+              >
                 Send Us Email
-              </p>
+              </a>
               <p className="text-sm text-gray-500">Sales Inquiry</p>
             </div>
           </div>
