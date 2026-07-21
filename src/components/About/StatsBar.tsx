@@ -1,7 +1,7 @@
 const stats = [
-  { label: "Projects", value: "500+" },
-  { label: "Clients", value: "200+" },
-  { label: "Years", value: "10+" },
+  { label: "Projects", value: "50+" },
+  { label: "Clients", value: "50+" },
+  { label: "Years", value: "5+" },
   { label: "Services", value: "8" },
   { label: "Satisfaction", value: "100%" },
 ];

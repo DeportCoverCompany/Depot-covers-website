@@ -65,7 +65,7 @@ export default function CompanyStory() {
 
           <div className="relative">
             <img
-              src="/images/outdoor-branding.jpg"
+              src="/wind1.jpeg"
               className="rounded-3xl shadow-2xl object-cover h-[520px] w-full"
               alt=""
             />
@@ -87,7 +87,7 @@ export default function CompanyStory() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative order-2 lg:order-1">
             <img
-              src="/images/interior-branding.jpg"
+              src="/wind2.jpeg"
               className="rounded-3xl shadow-2xl object-cover h-[520px] w-full"
               alt=""
             />
