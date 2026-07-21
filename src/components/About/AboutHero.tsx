@@ -13,37 +13,46 @@ export default function AboutHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-left space-y-6">
             <nav className="flex items-center gap-2 text-white/60 text-sm mb-4">
-              <Link to="/" className="hover:text-accent transition-colors">Home</Link>
+              <Link to="/" className="hover:text-accent transition-colors">
+                Home
+              </Link>
               <ChevronRight className="w-4 h-4" />
               <span className="text-white">About</span>
             </nav>
-            
+
             <div className="inline-block px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-wider mb-2">
               About DCC
             </div>
-            
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
               Who We Are
             </h1>
-            
+
             <p className="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed">
-              A full-service branding and printing company dedicated to excellence — 
-              transforming ideas into impactful visual experiences.
+              A full-service branding and printing company dedicated to
+              excellence — transforming ideas into impactful visual experiences.
             </p>
-            
+
             <div className="pt-4">
               <Link to="/contact">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-white font-bold h-12 px-8 shadow-xl shadow-accent/20">
+                <Button
+                  size="lg"
+                  className="bg-accent hover:bg-accent/90 text-white font-bold h-12 px-8 shadow-xl shadow-accent/20"
+                >
                   Work With Us
                 </Button>
               </Link>
             </div>
           </div>
-          
+
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-accent to-orange-400 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3] lg:aspect-square">
-              <img className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_c149a40b78_3cbe3d4ac3db4dda.png" alt="professional branding printing company office team Kenya Nairobi" />
+              <img
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+                src="/team.jpeg"
+                alt="professional branding printing company office team Kenya Nairobi"
+              />
             </div>
           </div>
         </div>

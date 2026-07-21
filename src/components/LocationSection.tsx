@@ -1,5 +1,3 @@
-import { MapPin, Phone, Clock } from "lucide-react";
-
 export default function LocationSection() {
   return (
     <section className="bg-gray-50 py-20">
