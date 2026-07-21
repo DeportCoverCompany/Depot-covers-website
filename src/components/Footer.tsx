@@ -194,7 +194,7 @@ export default function Footer() {
                     Location
                   </p>
                   <p className="text-white/80 text-sm">
-                    Nairobi Textiles, Luthuli Ave, Nairobi
+                    Gaborone Lane, Nairobi
                   </p>
                 </div>
               </li>

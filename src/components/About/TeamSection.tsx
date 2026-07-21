@@ -2,32 +2,24 @@ import { Linkedin, Twitter } from "lucide-react";
 
 const team = [
   {
-    name: "Grace Wanjiru",
+    name: "George Kenyatta",
     role: "Creative Director",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Grace",
-    linkedin: "#",
-    twitter: "#",
   },
   {
-    name: "Michael Odhiambo",
+    name: "Robbinson kamau",
     role: "Production Manager",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
-    linkedin: "#",
-    twitter: "#",
   },
   {
-    name: "Faith Kamau",
+    name: "Hezron Irungu",
     role: "Client Relations",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Faith",
-    linkedin: "#",
-    twitter: "#",
   },
   {
-    name: "Peter Mutua",
+    name: "Breamy George",
     role: "Lead Designer",
     avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Peter",
-    linkedin: "#",
-    twitter: "#",
   },
 ];
 
@@ -43,32 +35,31 @@ export default function TeamSection() {
             The People Behind Your Brand
           </h2>
           <p className="text-muted-foreground">
-            Our dedicated team of professionals brings decades of combined experience 
-            in design, printing, and brand strategy.
+            Our dedicated team of professionals brings decades of combined
+            experience in design, printing, and brand strategy.
           </p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {team.map((member, idx) => (
-            <div key={idx} className="group bg-white rounded-2xl p-6 shadow-sm border border-border hover:-translate-y-2 transition-all duration-300 hover:shadow-xl">
+            <div
+              key={idx}
+              className="group bg-white rounded-2xl p-6 shadow-sm border border-border hover:-translate-y-2 transition-all duration-300 hover:shadow-xl"
+            >
               <div className="relative mb-6 mx-auto w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden bg-muted">
-                <img 
-                  src={member.avatar} 
+                <img
+                  src={member.avatar}
                   alt={member.name}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="text-center">
-                <h4 className="text-lg font-bold text-primary mb-1">{member.name}</h4>
-                <p className="text-accent text-xs font-semibold uppercase tracking-wider mb-4">{member.role}</p>
-                <div className="flex justify-center gap-3">
-                  <a href={member.linkedin} className="text-muted-foreground hover:text-primary transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a href={member.twitter} className="text-muted-foreground hover:text-primary transition-colors">
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                </div>
+                <h4 className="text-lg font-bold text-primary mb-1">
+                  {member.name}
+                </h4>
+                <p className="text-accent text-xs font-semibold uppercase tracking-wider mb-4">
+                  {member.role}
+                </p>
               </div>
             </div>
           ))}

@@ -70,12 +70,12 @@ export default function CompanyStory() {
               alt=""
             />
 
-            <div className="absolute bottom-6 left-6 bg-white rounded-2xl shadow-lg px-6 py-4">
-              <p className="text-sm text-muted-foreground uppercase tracking-widest">
+            <div className="absolute bottom-6 left-6 bg-accent rounded-2xl shadow-lg px-6 py-4">
+              <p className="text-sm text-muted-foreground uppercase tracking-widest text-white">
                 Outdoor Branding
               </p>
 
-              <h4 className="font-bold text-primary text-xl">
+              <h4 className="font-bold text-primary text-xl text-white">
                 Large Format Signage
               </h4>
             </div>
@@ -92,12 +92,12 @@ export default function CompanyStory() {
               alt=""
             />
 
-            <div className="absolute bottom-6 right-6 bg-white rounded-2xl shadow-lg px-6 py-4">
-              <p className="text-sm text-muted-foreground uppercase tracking-widest">
+            <div className="absolute bottom-6 right-6  bg-accent  rounded-2xl shadow-lg px-6 py-4">
+              <p className="text-sm text-muted-foreground uppercase tracking-widest text-white">
                 Installation
               </p>
 
-              <h4 className="font-bold text-primary text-xl">
+              <h4 className="font-bold text-primary text-xl text-white">
                 Interior Branding
               </h4>
             </div>

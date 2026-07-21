@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 interface ServiceCardProps {
   name: string;
@@ -17,6 +19,7 @@ export default function ServiceCard({
   img_url,
   features,
 }: ServiceCardProps) {
+  const [showAll, setShowAll] = useState(false);
   return (
     <div className="group bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
       {/* Image Header */}
@@ -43,19 +46,37 @@ export default function ServiceCard({
         </p>
 
         {/* Feature Bullets */}
-        <ul className="space-y-2.5 mb-8">
-          {features.map((feature, i) => (
+        <ul className="space-y-2 mb-4">
+          {(showAll ? features : features.slice(0, 6)).map((feature, i) => (
             <li
               key={i}
-              className="flex items-start gap-2.5 text-sm text-foreground/80"
+              className="flex items-start gap-2 text-sm text-muted-foreground"
             >
-              <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Check className="w-3 h-3 text-accent" />
-              </div>
+              <Check className="w-4 h-4 text-accent mt-0.5 shrink-0" />
               <span>{feature}</span>
             </li>
           ))}
         </ul>
+
+        {features.length > 5 && (
+          <button
+            type="button"
+            onClick={() => setShowAll((prev) => !prev)}
+            className="mb-6 inline-flex items-center gap-1 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+          >
+            {showAll ? (
+              <>
+                Show less
+                <ChevronUp className="w-4 h-4" />
+              </>
+            ) : (
+              <>
+                +{features.length - 5} more services
+                <ChevronDown className="w-4 h-4" />
+              </>
+            )}
+          </button>
+        )}
 
         {/* Footer */}
         <div className="mt-auto">

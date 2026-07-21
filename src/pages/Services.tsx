@@ -10,107 +10,138 @@ import { Helmet } from "react-helmet-async";
 
 const services = [
   {
-    name: "Paper Printing",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_b04dbf4a53_876efd85adb92f06.png",
-    category: "Printing",
-    description:
-      "High-quality prints for business cards, flyers, brochures, letterheads, and all marketing materials.",
-    features: [
-      "Full-color CMYK printing",
-      "Various paper stocks and finishes",
-      "Fast turnaround",
-    ],
-  },
-  {
-    name: "Screen Printing",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_33bde062a4_fbf029b988ad09a0.png",
-    category: "Printing",
-    description:
-      "Durable and vibrant printing for T-shirts, uniforms, bags, and branded merchandise.",
-    features: [
-      "Long-lasting ink durability",
-      "Bulk order discounts",
-      "Pantone color matching",
-    ],
-  },
-  {
-    name: "Large Format Printing",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_128212a7f6_43cab9ccfb8b9362.png",
-    category: "Printing",
-    description:
-      "Eye-catching banners, posters, and large-scale prints for events, trade shows, and outdoor branding.",
-    features: [
-      "UV-resistant inks",
-      "Multiple substrate options",
-      "High-resolution output",
-    ],
-  },
-  {
-    name: "Signages",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_21c9a50827_a888ade31e8c7a8d.png",
+    name: "Signage Branding",
+    img_url: "/images/placeholder.jpg",
     category: "Signage",
     description:
-      "Custom signage solutions including shop fronts, wayfinding, vehicle branding, and illuminated signs.",
+      "Professional signage solutions designed to increase brand visibility and create a lasting impression across indoor and outdoor environments.",
     features: [
-      "Indoor & outdoor options",
-      "Custom fabrication",
-      "Professional installation",
+      "Lightbox Signs",
+      "3D Letter Signs",
+      "LED Signs",
+      "Directional Signs",
+      "Safety Signs",
+      "Reflective Signs",
     ],
   },
+
   {
-    name: "Embroidery",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_df4a5d33d1_924369c7bb3716cf.png",
+    name: "Promotional Branding",
+    img_url: "/images/placeholder.jpg",
+    category: "Promotional",
+    description:
+      "Custom branded merchandise that strengthens brand recognition and keeps your business visible through everyday promotional products.",
+    features: [
+      "Pens & Keyholders",
+      "Overalls",
+      "Mugs & Flasks",
+      "Caps & Tote Bags",
+      "Diaries & Notebooks",
+      "Name Badges",
+      "Rubber Stamps",
+    ],
+  },
+
+  {
+    name: "Corporate Stationery Printing",
+    img_url: "/images/placeholder.jpg",
+    category: "Printing",
+    description:
+      "High-quality business stationery that reinforces your corporate identity and ensures consistency across all communications.",
+    features: [
+      "Letterheads",
+      "Business Cards",
+      "Envelopes",
+      "Invoice Books",
+      "Receipt Books",
+      "Brochures",
+      "Calendars",
+      "Labels & Stickers",
+    ],
+  },
+
+  {
+    name: "Garments Printing",
+    img_url: "/images/placeholder.jpg",
     category: "Apparel",
     description:
-      "Professional embroidery for uniforms, corporate apparel, caps, bags, and all branded clothing.",
+      "Professional garment branding services for uniforms, corporate wear, promotional clothing, events, and marketing campaigns.",
     features: [
-      "Clean, detailed stitching",
-      "Compatible with all fabrics",
-      "Minimum order flexibility",
+      "T-Shirts",
+      "Polo Shirts",
+      "Corporate Shirts",
+      "Hoodies",
+      "Aprons",
+      "Overalls",
+      "Dust Coats",
+      "Drawstring Bags",
+      "Towels",
     ],
   },
+
   {
-    name: "Promotional Items",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_5fd57e119d_a5c33321cbe78048.png",
-    category: "Promotional",
-    description:
-      "Custom branded promotional products including pens, mugs, keychains, notebooks, and corporate gifts.",
-    features: [
-      "Wide product catalog",
-      "Logo personalization",
-      "Bulk pricing available",
-    ],
-  },
-  {
-    name: "Advertisement Solutions",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_8acb1ee80e_451f870413360ec1.png",
-    category: "Promotional",
-    description:
-      "Creative advertising materials including billboards, vehicle wraps, pull-up banners, and marketing collateral.",
-    features: [
-      "Creative design support",
-      "Strategic material selection",
-      "End-to-end execution",
-    ],
-  },
-  {
-    name: "Branding",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_d270dad96b_435a8add050d4489.png",
+    name: "Exhibition & Event Branding",
+    img_url: "/images/placeholder.jpg",
     category: "Branding",
     description:
-      "Complete brand identity and visual solutions including logo design, brand guidelines, stationery, and packaging.",
+      "Complete exhibition branding solutions that help businesses attract attention and create memorable event experiences.",
     features: [
-      "Brand strategy included",
-      "Comprehensive brand book",
-      "Multi-touchpoint consistency",
+      "Exhibition Stands",
+      "Pop-Up Displays",
+      "Roll-Up Banners",
+      "X-Banners",
+      "Teardrop Flags",
+      "Reflective Signs",
+    ],
+  },
+
+  {
+    name: "Office & Interior Branding",
+    img_url: "/images/placeholder.jpg",
+    category: "Branding",
+    description:
+      "Transform workspaces into visually engaging environments that reflect your company's identity while enhancing customer experience.",
+    features: [
+      "Wall Graphics",
+      "Reception Branding",
+      "Frosted Glass Branding",
+      "Window Graphics",
+      "Office Wayfinding",
+      "Car Stickers",
+    ],
+  },
+
+  {
+    name: "Outdoor Branding",
+    img_url: "/images/placeholder.jpg",
+    category: "Signage",
+    description:
+      "Large-format branding solutions built to maximize visibility and deliver high-impact advertising for businesses.",
+    features: [
+      "Lightbox Signs",
+      "Billboards",
+      "Banners",
+      "Backlit Banners",
+      "Construction Site Branding",
+      "Building Wraps",
+    ],
+  },
+
+  {
+    name: "CNC & Laser Branding",
+    img_url: "/images/placeholder.jpg",
+    category: "Branding",
+    description:
+      "Precision CNC routing and laser cutting services for premium branded signage, displays, and custom fabricated products.",
+    features: [
+      "Acrylic Signs",
+      "Metal Name Plates",
+      "Wooden Plaques",
+      "3D Letter Signage",
+      "Directional Signs",
+      "Custom Stencils",
+      "Display Stands",
+      "Key Holders",
     ],
   },
 ];
