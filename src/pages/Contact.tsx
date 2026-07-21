@@ -31,12 +31,15 @@ export default function Contact() {
           {/* Contact Main Section */}
           <section className="bg-white py-20 lg:py-28">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col lg:flex-row gap-16 xl:gap-24">
-                <div className="w-full lg:w-[60%] order-2 lg:order-1">
+              <div className="grid grid-cols-1 xl:grid-cols-12 gap-12">
+                <div className="xl:col-span-8">
                   <ContactForm />
                 </div>
-                <div className="w-full lg:w-[40%] order-1 lg:order-2">
-                  <ContactInfo />
+
+                <div className="xl:col-span-4">
+                  <div className="sticky top-28">
+                    <ContactInfo />
+                  </div>
                 </div>
               </div>
             </div>
