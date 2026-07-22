@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import TopBar from "./components/TopBar";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ServiceDetail from "./pages/ServiceDetail";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/process" element={<Process />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/servicedetails" element={<ServiceDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
