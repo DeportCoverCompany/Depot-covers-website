@@ -1,274 +1,146 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  ArrowRight,
-  CheckCircle2,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
-
-const slides = [
-  {
-    badge: "Kenya's Premier Branding Partner",
-    title: "We don't just print —",
-    highlight: "We bring brands to life",
-    description:
-      "High-quality branding and printing solutions that elevate your business visibility. From concept to precision execution.",
-
-    image: "/project/main_image.png",
-
-    card: {
-      image:
-        "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_63248d820b_ccc2f47ae3d0d110.png",
-      title: "Brand Identity Kit",
-      status: "Completed",
-    },
-  },
-
-  {
-    badge: "Large Format Specialists",
-    title: "Bold Ideas.",
-    highlight: "Printed Bigger.",
-    description:
-      "Billboards, banners, vehicle branding and signage engineered to make your business impossible to ignore.",
-
-    image: "/project/banner-printing.jpg",
-
-    card: {
-      image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600",
-      title: "Vehicle Branding",
-      status: "Delivered",
-    },
-  },
-
-  {
-    badge: "Corporate Branding Experts",
-    title: "Your Brand.",
-    highlight: "Professionally Presented.",
-    description:
-      "Business cards, office branding, packaging and promotional products crafted with precision and premium finishes.",
-
-    image: "/project/office-branding.jpg",
-
-    card: {
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600",
-      title: "Corporate Office",
-      status: "Finished",
-    },
-  },
-];
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export default function HeroSection() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  };
-
-  const previousSlide = () => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-primary">
-      {/* Background Images */}
-      <div className="absolute inset-0">
-        {slides.map((slide, index) => (
-          <img
-            key={index}
-            src={slide.image}
-            alt={slide.title}
-            className={`absolute inset-0 h-full w-full object-cover transition-all duration-[1800ms] ease-out
-            ${
-              current === index
-                ? "opacity-100 scale-110"
-                : "opacity-0 scale-100"
-            }`}
-          />
-        ))}
-
-        <div className="absolute inset-0 bg-black/65" />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-primary/40" />
+    <section className="relative min-h-screen flex items-center pt-20 pb-12 lg:pt-0 lg:pb-0 gradient-hero overflow-hidden">
+      {/* Background Shapes */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <div className="absolute top-[10%] right-[5%] w-64 h-64 rounded-full bg-white/5 blur-3xl animate-pulse" />
+        <div className="absolute bottom-[20%] left-[-5%] w-96 h-96 rounded-full bg-accent/5 blur-3xl" />
+        <div className="absolute top-[30%] left-[10%] opacity-10">
+          <svg
+            width="100"
+            height="100"
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="2" cy="2" r="2" fill="white" />
+            <circle cx="2" cy="22" r="2" fill="white" />
+            <circle cx="2" cy="42" r="2" fill="white" />
+            <circle cx="2" cy="62" r="2" fill="white" />
+            <circle cx="2" cy="82" r="2" fill="white" />
+            <circle cx="22" cy="2" r="2" fill="white" />
+            <circle cx="22" cy="22" r="2" fill="white" />
+            <circle cx="22" cy="42" r="2" fill="white" />
+            <circle cx="22" cy="62" r="2" fill="white" />
+            <circle cx="22" cy="82" r="2" fill="white" />
+            <circle cx="42" cy="2" r="2" fill="white" />
+            <circle cx="42" cy="22" r="2" fill="white" />
+            <circle cx="42" cy="42" r="2" fill="white" />
+            <circle cx="42" cy="62" r="2" fill="white" />
+            <circle cx="42" cy="82" r="2" fill="white" />
+            <circle cx="62" cy="2" r="2" fill="white" />
+            <circle cx="62" cy="22" r="2" fill="white" />
+            <circle cx="62" cy="42" r="2" fill="white" />
+            <circle cx="62" cy="62" r="2" fill="white" />
+            <circle cx="62" cy="82" r="2" fill="white" />
+            <circle cx="82" cy="2" r="2" fill="white" />
+            <circle cx="82" cy="22" r="2" fill="white" />
+            <circle cx="82" cy="42" r="2" fill="white" />
+            <circle cx="82" cy="62" r="2" fill="white" />
+            <circle cx="82" cy="82" r="2" fill="white" />
+          </svg>
+        </div>
       </div>
 
-      {/* Animated Blobs */}
-
-      <div className="absolute -left-32 top-20 w-96 h-96 rounded-full bg-accent/20 blur-3xl animate-pulse" />
-
-      <div className="absolute right-0 bottom-0 w-[30rem] h-[30rem] rounded-full bg-white/10 blur-3xl animate-pulse delay-700" />
-
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* LEFT SIDE */}
-
-          <div
-            key={current}
-            className="animate-in fade-in slide-in-from-left-8 duration-700"
-          >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Left Column */}
+          <div className="flex flex-col items-start space-y-6 lg:space-y-8 animate-in fade-in slide-in-from-left-8 duration-700">
             <Badge
               variant="outline"
-              className="mb-6 border-accent/30 bg-accent/10 text-accent rounded-full px-4 py-1 uppercase tracking-wider font-bold"
+              className="text-accent border-accent/30 bg-accent/5 px-4 py-1 rounded-full font-semibold tracking-wide uppercase text-xs"
             >
-              {slides[current].badge}
+              Kenya's Premier Branding Partner
             </Badge>
 
-            <h1 className="text-white font-black text-5xl sm:text-6xl lg:text-7xl leading-tight">
-              {slides[current].title}
-
-              <span className="block text-accent mt-2">
-                {slides[current].highlight}
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1]">
+              We don't just print —<br />
+              <span className="text-accent">We bring brands to life</span>
             </h1>
 
-            <p className="mt-8 text-white/80 text-xl max-w-xl leading-relaxed">
-              {slides[current].description}
+            <p className="text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
+              High-quality branding and printing solutions that elevate your
+              business visibility. From concept to precision execution.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-10">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Button
                 asChild
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white h-14 px-8 rounded-xl shadow-xl"
+                className="bg-accent hover:bg-accent/90 text-white font-bold h-14 px-8 text-lg rounded-xl shadow-lg shadow-accent/20 transition-all"
               >
                 <Link to="/contact">Get a Quote</Link>
               </Button>
-
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/40 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white h-14 px-8 rounded-xl"
+                className="bg-transparent border-white/40 hover:bg-white/10 text-white font-bold h-14 px-8 text-lg rounded-xl backdrop-blur-sm transition-all"
               >
                 <Link to="/portfolio" className="flex items-center gap-2">
-                  View Our Work
-                  <ArrowRight className="w-5 h-5" />
+                  View Our Work <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
             </div>
-            <div className="mt-12 flex flex-wrap gap-6 border-t border-white/10 pt-8">
+
+            <div className="flex flex-wrap items-center gap-6 pt-4 lg:pt-8 border-t border-white/10 w-full">
               {[
                 "5+ Years Experience",
-                "50+ Projects Completed",
-                "100% Client Satisfaction",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-accent" />
-
-                  <span className="text-white/70 font-medium text-sm">
-                    {item}
+                "50+ Projects Done",
+                "100% Satisfaction",
+              ].map((text) => (
+                <div key={text} className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent" />
+                  <span className="text-white/70 text-sm font-medium">
+                    {text}
                   </span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
-
-          <div className="relative">
-            {/* Main Image */}
-
-            <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+          {/* Right Column */}
+          <div className="relative animate-in fade-in slide-in-from-right-8 duration-700 delay-200">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
               <img
-                key={current}
-                src={slides[current].image}
-                alt={slides[current].title}
-                className="aspect-[4/3] w-full object-cover transition-all duration-700 group-hover:scale-105"
+                className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
+                src="/project/main_image.png"
+                alt="Large professional printing workshop in Kenya with vibrant indoor signage and large format printers "
               />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
             </div>
 
             {/* Floating Card */}
-
-            <div
-              key={current + "-card"}
-              className="absolute -bottom-8 left-6 sm:left-10 bg-white rounded-2xl shadow-2xl border border-gray-100 p-4 flex gap-4 items-center max-w-[270px] animate-in fade-in slide-in-from-bottom-4 duration-500"
-            >
-              <div className="h-14 w-14 rounded-xl overflow-hidden flex-shrink-0">
+            <div className="absolute -bottom-6 -left-6 sm:bottom-8 sm:left-8 bg-white p-4 rounded-2xl shadow-2xl border border-border flex items-center gap-4 max-w-[240px] animate-bounce-subtle">
+              <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                 <img
-                  src={slides[current].card.image}
-                  alt={slides[current].card.title}
-                  className="h-full w-full object-cover"
+                  className="w-full h-full object-cover"
+                  src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_63248d820b_ccc2f47ae3d0d110.png"
+                  alt="Corporate brand identity kit with business cards and stationery"
                 />
               </div>
-
               <div>
-                <p className="text-[10px] uppercase tracking-widest font-bold text-accent">
+                <p className="text-[10px] uppercase tracking-wider font-bold text-accent mb-0.5">
                   Latest Project
                 </p>
-
-                <h3 className="text-primary font-extrabold text-sm leading-tight mt-1">
-                  {slides[current].card.title}
-                </h3>
-
-                <span className="inline-flex mt-2 rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-bold text-emerald-700">
-                  {slides[current].card.status}
+                <p className="text-sm font-extrabold text-primary leading-tight mb-1">
+                  Brand Identity Kit
+                </p>
+                <span className="inline-block px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold">
+                  Completed
                 </span>
               </div>
             </div>
 
-            {/* Decorative Glow */}
-
-            <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-accent/20 blur-3xl -z-10" />
+            {/* Decorative Element */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-2xl -z-10"></div>
           </div>
         </div>
-      </div>
-
-      {/* Previous Button */}
-
-      <button
-        onClick={previousSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 p-3 text-white transition hover:bg-white/20 hover:scale-110"
-      >
-        <ChevronLeft className="h-6 w-6" />
-      </button>
-
-      {/* Next Button */}
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 p-3 text-white transition hover:bg-white/20 hover:scale-110"
-      >
-        <ChevronRight className="h-6 w-6" />
-      </button>
-
-      {/* Slide Indicators */}
-
-      <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`transition-all duration-500 rounded-full
-
-            ${
-              current === index
-                ? "w-10 h-2 bg-accent"
-                : "w-2 h-2 bg-white/40 hover:bg-white"
-            }`}
-          />
-        ))}
-      </div>
-      {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary/70 to-transparent pointer-events-none" />
-
-      {/* Top Decorative Glow */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-1/4 top-24 h-72 w-72 rounded-full bg-accent/10 blur-[120px]" />
-
-        <div className="absolute right-1/4 bottom-24 h-96 w-96 rounded-full bg-white/5 blur-[150px]" />
       </div>
     </section>
   );
