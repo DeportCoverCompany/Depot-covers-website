@@ -1,146 +1,333 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+import { ArrowRight, ChevronUp, ChevronDown } from "lucide-react";
+
+const AUTO_PLAY_DELAY = 6000;
+
+const slides = [
+  {
+    id: 1,
+    badge: "Kenya's Premier Branding Partner",
+    title: "We don't just print.",
+    highlight: "We bring brands to life.",
+    description:
+      "Premium branding, signage, large format printing, vehicle branding, and corporate identity solutions that help businesses stand out.",
+    image:
+      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=2000&q=80",
+  },
+
+  {
+    id: 2,
+    badge: "Vehicle Branding",
+    title: "Turn Every Vehicle",
+    highlight: "Into A Moving Billboard.",
+    description:
+      "Professional fleet branding and vehicle wraps that advertise your business everywhere you go.",
+    image:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80",
+  },
+
+  {
+    id: 3,
+    badge: "Large Format Printing",
+    title: "Print Bigger.",
+    highlight: "Get Noticed.",
+    description:
+      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80",
+  },
+
+  {
+    id: 4,
+    badge: "Corporate Identity",
+    title: "Build A Brand",
+    highlight: "People Remember.",
+    description:
+      "Corporate branding, office signage, business stationery and promotional products designed to elevate your business.",
+    image:
+      "https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=2000&q=80",
+  },
+];
 
 export default function HeroSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const sliderRef = useRef(null);
+
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  const previousSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, AUTO_PLAY_DELAY);
+
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const distance = touchStartX.current - touchEndX.current;
+
+    if (distance > 60) {
+      nextSlide();
+    }
+
+    if (distance < -60) {
+      previousSlide();
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center pt-20 pb-12 lg:pt-0 lg:pb-0 gradient-hero overflow-hidden">
-      {/* Background Shapes */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute top-[10%] right-[5%] w-64 h-64 rounded-full bg-white/5 blur-3xl animate-pulse" />
-        <div className="absolute bottom-[20%] left-[-5%] w-96 h-96 rounded-full bg-accent/5 blur-3xl" />
-        <div className="absolute top-[30%] left-[10%] opacity-10">
-          <svg
-            width="100"
-            height="100"
-            viewBox="0 0 100 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+    <section
+      ref={sliderRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      className="relative min-h-screen overflow-hidden bg-black"
+    >
+      {/* Background Slides */}
+      <div className="absolute inset-0">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+              currentSlide === index ? "opacity-100 z-20" : "opacity-0 z-10"
+            }`}
           >
-            <circle cx="2" cy="2" r="2" fill="white" />
-            <circle cx="2" cy="22" r="2" fill="white" />
-            <circle cx="2" cy="42" r="2" fill="white" />
-            <circle cx="2" cy="62" r="2" fill="white" />
-            <circle cx="2" cy="82" r="2" fill="white" />
-            <circle cx="22" cy="2" r="2" fill="white" />
-            <circle cx="22" cy="22" r="2" fill="white" />
-            <circle cx="22" cy="42" r="2" fill="white" />
-            <circle cx="22" cy="62" r="2" fill="white" />
-            <circle cx="22" cy="82" r="2" fill="white" />
-            <circle cx="42" cy="2" r="2" fill="white" />
-            <circle cx="42" cy="22" r="2" fill="white" />
-            <circle cx="42" cy="42" r="2" fill="white" />
-            <circle cx="42" cy="62" r="2" fill="white" />
-            <circle cx="42" cy="82" r="2" fill="white" />
-            <circle cx="62" cy="2" r="2" fill="white" />
-            <circle cx="62" cy="22" r="2" fill="white" />
-            <circle cx="62" cy="42" r="2" fill="white" />
-            <circle cx="62" cy="62" r="2" fill="white" />
-            <circle cx="62" cy="82" r="2" fill="white" />
-            <circle cx="82" cy="2" r="2" fill="white" />
-            <circle cx="82" cy="22" r="2" fill="white" />
-            <circle cx="82" cy="42" r="2" fill="white" />
-            <circle cx="82" cy="62" r="2" fill="white" />
-            <circle cx="82" cy="82" r="2" fill="white" />
-          </svg>
-        </div>
+            {/* Background Image */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div
+                className={`h-full w-full ${
+                  currentSlide === index
+                    ? "scale-110 transition-transform duration-[7000ms] ease-linear"
+                    : "scale-100"
+                }`}
+              >
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            </div>
+
+            {/* Soft Left Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
+
+            {/* Top & Bottom Fade */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/25" />
+
+            {/* Ambient Orange Glow */}
+            <div className="absolute -left-40 top-1/4 h-[450px] w-[450px] rounded-full bg-orange-500/15 blur-[140px]" />
+
+            {/* Ambient White Glow */}
+            <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-white/10 blur-[150px]" />
+
+            {/* Bottom Accent Glow */}
+            <div className="absolute bottom-0 left-1/3 h-[350px] w-[350px] rounded-full bg-orange-400/10 blur-[130px]" />
+          </div>
+        ))}
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left Column */}
-          <div className="flex flex-col items-start space-y-6 lg:space-y-8 animate-in fade-in slide-in-from-left-8 duration-700">
+      {/* Decorative Overlay */}
+      <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
+        <div className="absolute left-16 top-20 h-64 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+
+        <div className="absolute right-20 bottom-20 h-72 w-px bg-gradient-to-b from-transparent via-orange-500/30 to-transparent" />
+
+        <div className="absolute left-1/2 top-0 h-32 w-32 -translate-x-1/2 rounded-full bg-orange-500/10 blur-[80px]" />
+      </div>
+
+      {/* Hero Content */}
+      <div className="relative z-30 flex min-h-screen items-center">
+        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+          <div
+            key={currentSlide}
+            className="max-w-3xl rounded-[32px] border border-white/10 bg-black/20 p-8 backdrop-blur-xl shadow-2xl md:p-12 animate-in fade-in slide-in-from-bottom-6 duration-700"
+          >
+            {/* Badge */}
             <Badge
               variant="outline"
-              className="text-accent border-accent/30 bg-accent/5 px-4 py-1 rounded-full font-semibold tracking-wide uppercase text-xs"
+              className="mb-8 inline-flex items-center gap-2 rounded-full border-orange-500/40 bg-orange-500/15 px-5 py-2 backdrop-blur-xl"
             >
-              Kenya's Premier Branding Partner
+              <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
+
+              <span
+                className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-300"
+                style={{
+                  textShadow: "0 2px 12px rgba(0,0,0,.9)",
+                }}
+              >
+                {slides[currentSlide].badge}
+              </span>
             </Badge>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1]">
-              We don't just print —<br />
-              <span className="text-accent">We bring brands to life</span>
+            {/* Heading */}
+            <h1
+              className="mb-6 text-5xl font-black leading-[1.05] tracking-tight text-white md:text-7xl lg:text-[80px]"
+              style={{
+                textShadow: "0 8px 30px rgba(0,0,0,.95)",
+              }}
+            >
+              {slides[currentSlide].title}
+
+              <br />
+
+              <span className="bg-gradient-to-r from-white via-orange-100 to-orange-300 bg-clip-text text-transparent">
+                {slides[currentSlide].highlight}
+              </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-white/80 max-w-xl leading-relaxed">
-              High-quality branding and printing solutions that elevate your
-              business visibility. From concept to precision execution.
+            {/* Description */}
+            <p
+              className="mb-10 max-w-2xl text-lg font-light leading-8 text-white/90 md:text-xl"
+              style={{
+                textShadow: "0 2px 14px rgba(0,0,0,.9)",
+              }}
+            >
+              {slides[currentSlide].description}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            {/* Buttons */}
+            <div className="flex flex-col gap-4 sm:flex-row">
               <Button
                 asChild
                 size="lg"
-                className="bg-accent hover:bg-accent/90 text-white font-bold h-14 px-8 text-lg rounded-xl shadow-lg shadow-accent/20 transition-all"
+                className="h-14 rounded-full bg-orange-500 px-8 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-orange-400 hover:shadow-[0_0_40px_rgba(249,115,22,0.55)]"
               >
-                <Link to="/contact">Get a Quote</Link>
+                <Link to="/contact" className="flex items-center gap-2">
+                  Get a Quote
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
               </Button>
+
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white/40 hover:bg-white/10 text-white font-bold h-14 px-8 text-lg rounded-xl backdrop-blur-sm transition-all"
+                className="h-14 rounded-full border border-white/30 bg-white/10 px-8 text-lg font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-white/20"
               >
-                <Link to="/portfolio" className="flex items-center gap-2">
-                  View Our Work <ArrowRight className="w-5 h-5" />
-                </Link>
+                <Link to="/portfolio">View Portfolio</Link>
               </Button>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* ===========================
+          Bottom Navigation
+      ============================ */}
+      <div className="pointer-events-none absolute bottom-10 left-0 z-40 w-full px-6 md:px-12">
+        <div className="mx-auto flex max-w-7xl items-end justify-between">
+          {/* Slide Counter & Indicators */}
+          <div className="pointer-events-auto flex items-center gap-8">
+            <div
+              className="text-2xl font-light tracking-[0.2em] text-white"
+              style={{
+                textShadow: "0 2px 12px rgba(0,0,0,.9)",
+              }}
+            >
+              <span className="font-bold">
+                {String(currentSlide + 1).padStart(2, "0")}
+              </span>
 
-            <div className="flex flex-wrap items-center gap-6 pt-4 lg:pt-8 border-t border-white/10 w-full">
-              {[
-                "5+ Years Experience",
-                "50+ Projects Done",
-                "100% Satisfaction",
-              ].map((text) => (
-                <div key={text} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-accent" />
-                  <span className="text-white/70 text-sm font-medium">
-                    {text}
-                  </span>
-                </div>
+              <span className="text-white/50">
+                {" "}
+                / {String(slides.length).padStart(2, "0")}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                  className={`overflow-hidden rounded-full transition-all duration-500 ${
+                    currentSlide === index
+                      ? "h-1.5 w-14 bg-orange-500 shadow-[0_0_18px_rgba(249,115,22,.6)]"
+                      : "h-1.5 w-6 bg-white/30 hover:w-10 hover:bg-white/60"
+                  }`}
+                />
               ))}
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="relative animate-in fade-in slide-in-from-right-8 duration-700 delay-200">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
-              <img
-                className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
-                src="/project/main_image.png"
-                alt="Large professional printing workshop in Kenya with vibrant indoor signage and large format printers "
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
-            </div>
+          {/* Scroll Indicator */}
+          <div className="pointer-events-auto hidden md:flex flex-col items-center gap-3">
+            <span
+              className="rotate-90 text-xs uppercase tracking-[0.35em] text-white/80"
+              style={{
+                textShadow: "0 2px 10px rgba(0,0,0,.8)",
+              }}
+            >
+              Scroll
+            </span>
 
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 sm:bottom-8 sm:left-8 bg-white p-4 rounded-2xl shadow-2xl border border-border flex items-center gap-4 max-w-[240px] animate-bounce-subtle">
-              <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-                <img
-                  className="w-full h-full object-cover"
-                  src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_63248d820b_ccc2f47ae3d0d110.png"
-                  alt="Corporate brand identity kit with business cards and stationery"
-                />
-              </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-wider font-bold text-accent mb-0.5">
-                  Latest Project
-                </p>
-                <p className="text-sm font-extrabold text-primary leading-tight mb-1">
-                  Brand Identity Kit
-                </p>
-                <span className="inline-block px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold">
-                  Completed
-                </span>
-              </div>
+            <div className="mt-8 flex h-14 w-7 justify-center rounded-full border border-white/30 bg-white/5 backdrop-blur-md">
+              <div className="mt-2 h-3 w-1 rounded-full bg-orange-500 animate-bounce" />
             </div>
-
-            {/* Decorative Element */}
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-2xl -z-10"></div>
           </div>
         </div>
+      </div>
+
+      {/* ===========================
+          Floating Navigation
+      ============================ */}
+
+      <div className="absolute right-6 top-1/2 z-40 flex -translate-y-1/2 flex-col gap-4 md:right-10">
+        <Button
+          size="icon"
+          variant="outline"
+          onClick={previousSlide}
+          className="h-12 w-12 rounded-full border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-white/20"
+        >
+          <ChevronUp className="h-5 w-5" />
+        </Button>
+
+        <Button
+          size="icon"
+          variant="outline"
+          onClick={nextSlide}
+          className="h-12 w-12 rounded-full border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-white/20"
+        >
+          <ChevronDown className="h-5 w-5" />
+        </Button>
+      </div>
+
+      {/* ===========================
+          Image Preloader
+      ============================ */}
+
+      <div className="hidden" aria-hidden="true">
+        {slides.map((slide) => (
+          <img
+            key={`preload-${slide.id}`}
+            src={slide.image}
+            alt=""
+            className="hidden"
+          />
+        ))}
       </div>
     </section>
   );
