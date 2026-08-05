@@ -13,7 +13,7 @@ export default function AboutPreview() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
               <img
                 className="w-full aspect-[4/5] object-cover"
-                src="/project/photo1.jpeg"
+                src="/project/descImage.jpeg"
                 alt="Professional branding team in Kenya discussing a graphic design project in a modern studio"
               />
               <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
