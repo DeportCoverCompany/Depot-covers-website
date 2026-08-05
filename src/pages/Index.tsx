@@ -29,7 +29,6 @@ export default function Index() {
           <StatsBar />
           <ServicesOverview />
           <AboutPreview />
-
           <WhyChooseUs />
           <ProcessPreview />
           <PortfolioPreview />
