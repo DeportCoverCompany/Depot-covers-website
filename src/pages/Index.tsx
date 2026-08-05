@@ -27,8 +27,9 @@ export default function Index() {
         <main className="flex-grow">
           <HeroSection />
           <StatsBar />
-          <AboutPreview />
           <ServicesOverview />
+          <AboutPreview />
+
           <WhyChooseUs />
           <ProcessPreview />
           <PortfolioPreview />
