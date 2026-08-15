@@ -151,7 +151,7 @@ export default function HeroSection() {
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="h-full w-full object-contained object-center"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
             </div>
