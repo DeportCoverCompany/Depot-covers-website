@@ -6,7 +6,12 @@ import { Badge } from "@/components/ui/badge";
 
 import { ArrowRight, ChevronUp, ChevronDown } from "lucide-react";
 
-const AUTO_PLAY_DELAY = 6000;
+const AUTO_PLAY_DELAY = 10000;
+
+// Images from public/
+const slide1 = "/project/Slide-1.jpg";
+const slide2 = "/project/slide-2.jpg";
+const slide3 = "/project/slide-3.jpg";
 
 const slides = [
   {
@@ -16,10 +21,8 @@ const slides = [
     highlight: "We bring brands to life.",
     description:
       "Premium branding, signage, large format printing, vehicle branding, and corporate identity solutions that help businesses stand out.",
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=2000&q=80",
+    image: slide1,
   },
-
   {
     id: 2,
     badge: "Vehicle Branding",
@@ -27,10 +30,8 @@ const slides = [
     highlight: "Into A Moving Billboard.",
     description:
       "Professional fleet branding and vehicle wraps that advertise your business everywhere you go.",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=2000&q=80",
+    image: slide2,
   },
-
   {
     id: 3,
     badge: "Large Format Printing",
@@ -38,19 +39,7 @@ const slides = [
     highlight: "Get Noticed.",
     description:
       "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
-    image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80",
-  },
-
-  {
-    id: 4,
-    badge: "Corporate Identity",
-    title: "Build A Brand",
-    highlight: "People Remember.",
-    description:
-      "Corporate branding, office signage, business stationery and promotional products designed to elevate your business.",
-    image:
-      "https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=2000&q=80",
+    image: slide3,
   },
 ];
 
@@ -62,6 +51,10 @@ export default function HeroSection() {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
+  // ----------------------------------------
+  // Navigation
+  // ----------------------------------------
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
@@ -70,16 +63,25 @@ export default function HeroSection() {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
+  // ----------------------------------------
+  // Auto Play
+  // ----------------------------------------
+
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     }, AUTO_PLAY_DELAY);
 
     return () => clearInterval(interval);
-  }, [currentSlide]);
+  }, []);
+
+  // ----------------------------------------
+  // Touch / Swipe
+  // ----------------------------------------
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = e.targetTouches[0].clientX;
   };
 
   const handleTouchMove = (e) => {
@@ -104,143 +106,83 @@ export default function HeroSection() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative min-h-screen overflow-hidden bg-black"
+      className="relative min-h-screen overflow-hidden bg-white"
     >
-      {/* Background Slides */}
-      <div className="absolute inset-0">
+      {/* =========================================
+          SLIDES
+      ========================================== */}
+
+      <div className="absolute inset-0 bg-white px-3 py-3 md:px-6 md:py-5 lg:px-10 lg:py-6">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-              currentSlide === index ? "opacity-100 z-20" : "opacity-0 z-10"
+            className={`absolute inset-3 overflow-hidden rounded-2xl shadow-2xl transition-all duration-1000 ease-in-out md:inset-x-6 md:inset-y-5 lg:inset-x-10 lg:inset-y-6 ${
+              currentSlide === index ? "z-20 opacity-100" : "z-10 opacity-0"
             }`}
           >
-            {/* Background Image */}
+            {/* =========================================
+                PROGRESS BAR
+            ========================================== */}
+
+            <div className="absolute left-0 right-0 top-0 z-50 h-1 bg-white/20">
+              {currentSlide === index && (
+                <div
+                  key={currentSlide}
+                  className="h-full bg-orange-500"
+                  style={{
+                    animation: `slideProgress ${AUTO_PLAY_DELAY}ms linear forwards`,
+                  }}
+                />
+              )}
+            </div>
+
+            {/* =========================================
+                IMAGE
+            ========================================== */}
+
             <div className="absolute inset-0 overflow-hidden">
               <div
                 className={`h-full w-full ${
                   currentSlide === index
-                    ? "scale-110 transition-transform duration-[7000ms] ease-linear"
+                    ? "scale-110 transition-transform duration-[10000ms] ease-linear"
                     : "scale-100"
                 }`}
               >
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="h-full w-full object-cover object-center"
+                  className="h-full w-full object-contained object-center"
                 />
               </div>
             </div>
 
-            {/* Soft Left Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
+            {/* =========================================
+                IMAGE OVERLAY
+            ========================================== */}
 
-            {/* Top & Bottom Fade */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/25" />
+            {/* <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/85 via-black/25 to-transparent" /> */}
 
-            {/* Ambient Orange Glow */}
-            <div className="absolute -left-40 top-1/4 h-[450px] w-[450px] rounded-full bg-orange-500/15 blur-[140px]" />
+            {/* Subtle side gradient */}
+            {/* <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/30 via-transparent to-transparent" /> */}
 
-            {/* Ambient White Glow */}
-            <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-white/10 blur-[150px]" />
-
-            {/* Bottom Accent Glow */}
-            <div className="absolute bottom-0 left-1/3 h-[350px] w-[350px] rounded-full bg-orange-400/10 blur-[130px]" />
+            {/* =========================================
+                SLIDE CONTENT
+            ========================================== */}
           </div>
         ))}
       </div>
 
-      {/* Decorative Overlay */}
-      <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
-        <div className="absolute left-16 top-20 h-64 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+      {/* =========================================
+          BOTTOM NAVIGATION
+      ========================================== */}
 
-        <div className="absolute right-20 bottom-20 h-72 w-px bg-gradient-to-b from-transparent via-orange-500/30 to-transparent" />
-
-        <div className="absolute left-1/2 top-0 h-32 w-32 -translate-x-1/2 rounded-full bg-orange-500/10 blur-[80px]" />
-      </div>
-
-      {/* Hero Content */}
-      <div className="relative z-30 flex min-h-screen items-center">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
-          <div
-            key={currentSlide}
-            className="max-w-3xl rounded-[32px] border border-white/10 bg-black/20 p-8 backdrop-blur-xl shadow-2xl md:p-12 animate-in fade-in slide-in-from-bottom-6 duration-700"
-          >
-            {/* Badge */}
-            <Badge
-              variant="outline"
-              className="mb-8 inline-flex items-center gap-2 rounded-full border-orange-500/40 bg-orange-500/15 px-5 py-2 backdrop-blur-xl"
-            >
-              <span className="h-2 w-2 rounded-full bg-orange-500 animate-pulse" />
-
-              <span
-                className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-300"
-                style={{
-                  textShadow: "0 2px 12px rgba(0,0,0,.9)",
-                }}
-              >
-                {slides[currentSlide].badge}
-              </span>
-            </Badge>
-
-            {/* Heading */}
-            <h1
-              className="mb-6 text-5xl font-black leading-[1.05] tracking-tight text-white md:text-7xl lg:text-[80px]"
-              style={{
-                textShadow: "0 8px 30px rgba(0,0,0,.95)",
-              }}
-            >
-              {slides[currentSlide].title}
-
-              <br />
-
-              <span className="bg-gradient-to-r from-white via-orange-100 to-orange-300 bg-clip-text text-transparent">
-                {slides[currentSlide].highlight}
-              </span>
-            </h1>
-
-            {/* Description */}
-            <p
-              className="mb-10 max-w-2xl text-lg font-light leading-8 text-white/90 md:text-xl"
-              style={{
-                textShadow: "0 2px 14px rgba(0,0,0,.9)",
-              }}
-            >
-              {slides[currentSlide].description}
-            </p>
-
-            {/* Buttons */}
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="h-14 rounded-full bg-orange-500 px-8 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-orange-400 hover:shadow-[0_0_40px_rgba(249,115,22,0.55)]"
-              >
-                <Link to="/contact" className="flex items-center gap-2">
-                  Get a Quote
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </Button>
-
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="h-14 rounded-full border border-white/30 bg-white/10 px-8 text-lg font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-white/20"
-              >
-                <Link to="/portfolio">View Portfolio</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* ===========================
-          Bottom Navigation
-      ============================ */}
       <div className="pointer-events-none absolute bottom-10 left-0 z-40 w-full px-6 md:px-12">
         <div className="mx-auto flex max-w-7xl items-end justify-between">
           {/* Slide Counter & Indicators */}
+
           <div className="pointer-events-auto flex items-center gap-8">
+            {/* Counter */}
+
             <div
               className="text-2xl font-light tracking-[0.2em] text-white"
               style={{
@@ -256,6 +198,8 @@ export default function HeroSection() {
                 / {String(slides.length).padStart(2, "0")}
               </span>
             </div>
+
+            {/* Indicators */}
 
             <div className="flex items-center gap-3">
               {slides.map((_, index) => (
@@ -274,7 +218,8 @@ export default function HeroSection() {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="pointer-events-auto hidden md:flex flex-col items-center gap-3">
+
+          <div className="pointer-events-auto hidden flex-col items-center gap-3 md:flex">
             <span
               className="rotate-90 text-xs uppercase tracking-[0.35em] text-white/80"
               style={{
@@ -285,22 +230,23 @@ export default function HeroSection() {
             </span>
 
             <div className="mt-8 flex h-14 w-7 justify-center rounded-full border border-white/30 bg-white/5 backdrop-blur-md">
-              <div className="mt-2 h-3 w-1 rounded-full bg-orange-500 animate-bounce" />
+              <div className="mt-2 h-3 w-1 animate-bounce rounded-full bg-orange-500" />
             </div>
           </div>
         </div>
       </div>
 
-      {/* ===========================
-          Floating Navigation
-      ============================ */}
+      {/* =========================================
+          FLOATING NAVIGATION
+      ========================================== */}
 
       <div className="absolute right-6 top-1/2 z-40 flex -translate-y-1/2 flex-col gap-4 md:right-10">
         <Button
           size="icon"
           variant="outline"
           onClick={previousSlide}
-          className="h-12 w-12 rounded-full border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-white/20"
+          aria-label="Previous slide"
+          className="h-12 w-12 rounded-full border-white/20 bg-black/20 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-black/40"
         >
           <ChevronUp className="h-5 w-5" />
         </Button>
@@ -309,26 +255,38 @@ export default function HeroSection() {
           size="icon"
           variant="outline"
           onClick={nextSlide}
-          className="h-12 w-12 rounded-full border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-white/20"
+          aria-label="Next slide"
+          className="h-12 w-12 rounded-full border-white/20 bg-black/20 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-black/40"
         >
           <ChevronDown className="h-5 w-5" />
         </Button>
       </div>
 
-      {/* ===========================
-          Image Preloader
-      ============================ */}
+      {/* =========================================
+          IMAGE PRELOADER
+      ========================================== */}
 
       <div className="hidden" aria-hidden="true">
         {slides.map((slide) => (
-          <img
-            key={`preload-${slide.id}`}
-            src={slide.image}
-            alt=""
-            className="hidden"
-          />
+          <img key={`preload-${slide.id}`} src={slide.image} alt="" />
         ))}
       </div>
+
+      {/* =========================================
+          PROGRESS BAR ANIMATION
+      ========================================== */}
+
+      <style>{`
+        @keyframes slideProgress {
+          from {
+            width: 0%;
+          }
+
+          to {
+            width: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 }
