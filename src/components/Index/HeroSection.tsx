@@ -12,6 +12,11 @@ const AUTO_PLAY_DELAY = 10000;
 const slide1 = "/project/Slide-1.jpg";
 const slide2 = "/project/slide-2.jpg";
 const slide3 = "/project/slide-3.jpg";
+const slide4 = "/project/slide-4.jpg";
+const slide5 = "/project/slide-5.jpeg";
+const slide6 = "/project/slide-6.jpeg";
+const slide7 = "/project/slide-7.jpeg";
+const slide8 = "/project/slide-8.jpeg";
 
 const slides = [
   {
@@ -40,6 +45,51 @@ const slides = [
     description:
       "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
     image: slide3,
+  },
+  {
+    id: 4,
+    badge: "Large Format Printing",
+    title: "Print Bigger.",
+    highlight: "Get Noticed.",
+    description:
+      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
+    image: slide4,
+  },
+  {
+    id: 5,
+    badge: "Large Format Printing",
+    title: "Print Bigger.",
+    highlight: "Get Noticed.",
+    description:
+      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
+    image: slide5,
+  },
+  {
+    id: 6,
+    badge: "Large Format Printing",
+    title: "Print Bigger.",
+    highlight: "Get Noticed.",
+    description:
+      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
+    image: slide6,
+  },
+  {
+    id: 7,
+    badge: "Large Format Printing",
+    title: "Print Bigger.",
+    highlight: "Get Noticed.",
+    description:
+      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
+    image: slide7,
+  },
+  {
+    id: 8,
+    badge: "Large Format Printing",
+    title: "Print Bigger.",
+    highlight: "Get Noticed.",
+    description:
+      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
+    image: slide8,
   },
 ];
 
