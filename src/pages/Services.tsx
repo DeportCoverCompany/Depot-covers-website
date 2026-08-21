@@ -8,10 +8,13 @@ import WhyChooseUs from "@/components/Services/WhyChooseUs";
 import ServicesCta from "@/components/Services/ServicesCta";
 import { Helmet } from "react-helmet-async";
 
+const sinage = "/project/services/sinage.jpeg";
+const promotional = "/project/services/promotional.jpeg";
+
 const services = [
   {
     name: "Signage Branding",
-    img_url: "/images/placeholder.jpg",
+    img_url: sinage,
     category: "Signage",
     description:
       "Professional signage solutions designed to increase brand visibility and create a lasting impression across indoor and outdoor environments.",
@@ -27,7 +30,7 @@ const services = [
 
   {
     name: "Promotional Branding",
-    img_url: "/images/placeholder.jpg",
+    img_url: promotional,
     category: "Promotional",
     description:
       "Custom branded merchandise that strengthens brand recognition and keeps your business visible through everyday promotional products.",
