@@ -25,8 +25,18 @@ const gamentsGallery = [
   "/project/services/gaments9.jpeg",
   "/project/services/gaments10.jpeg",
 ];
-
+// --------
 const events = "/project/services/events.jpeg";
+// ---- Events Gallery
+const eventsGallery = [
+  "/project/services/ex1.jpeg",
+  "/project/services/ex2.jpeg",
+  "/project/services/ex3.jpeg",
+  "/project/services/ex4.jpeg",
+  "/project/services/ex5.jpeg",
+  "/project/services/ex6.jpeg",
+];
+
 const office = "/project/services/office.jpeg";
 const coprate = "/project/services/coprate.jpeg";
 
@@ -114,6 +124,7 @@ const services = [
     category: "Branding",
     description:
       "Complete exhibition branding solutions that help businesses attract attention and create memorable event experiences.",
+    gallery: eventsGallery,
     features: [
       "Exhibition Stands",
       "Pop-Up Displays",
