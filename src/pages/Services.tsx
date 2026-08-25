@@ -13,6 +13,7 @@ const promotional = "/project/services/promotional.jpeg";
 const gaments = "/project/services/garments.jpeg";
 const events = "/project/services/events.jpeg";
 const office = "/project/services/office.jpeg";
+const coprate = "/project/services/coprate.jpeg";
 
 const services = [
   {
@@ -50,7 +51,7 @@ const services = [
 
   {
     name: "Corporate Stationery Printing",
-    img_url: "/images/placeholder.jpg",
+    img_url: coprate,
     category: "Printing",
     description:
       "High-quality business stationery that reinforces your corporate identity and ensures consistency across all communications.",
