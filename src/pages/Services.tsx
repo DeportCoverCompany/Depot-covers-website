@@ -152,15 +152,6 @@ const services = [
   },
 ];
 
-const categories = [
-  "All",
-  "Printing",
-  "Signage",
-  "Apparel",
-  "Promotional",
-  "Branding",
-];
-
 export default function Services() {
   return (
     <>
@@ -190,20 +181,6 @@ export default function Services() {
               </div>
 
               {/* Filter Pills (Visual only) */}
-              <div className="flex flex-wrap justify-center gap-3">
-                {categories.map((cat, i) => (
-                  <button
-                    key={cat}
-                    className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 border ${
-                      i === 0
-                        ? "bg-accent border-accent text-white shadow-md"
-                        : "bg-white border-border text-muted-foreground hover:border-accent hover:text-accent"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
             </div>
           </section>
 

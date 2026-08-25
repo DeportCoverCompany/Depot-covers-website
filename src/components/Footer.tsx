@@ -212,7 +212,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     className="text-white/80 text-sm hover:text-[hsl(25,95%,53%)] transition-colors"
                   >
-                    www.depotcovers.com
+                    www.depotcovers.co.ke
                   </a>
                 </div>
               </li>
