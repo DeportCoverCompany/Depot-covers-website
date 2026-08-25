@@ -10,7 +10,22 @@ import { Helmet } from "react-helmet-async";
 
 const sinage = "/project/services/sinage.jpeg";
 const promotional = "/project/services/promotional.jpeg";
+// ----
 const gaments = "/project/services/garments.jpeg";
+// ----- Garments Gallery
+const gamentsGallery = [
+  "/project/services/gaments1.jpeg",
+  "/project/services/gaments2.jpeg",
+  "/project/services/gaments3.jpeg",
+  "/project/services/gaments4.jpeg",
+  "/project/services/gaments5.jpeg",
+  "/project/services/gaments6.jpeg",
+  "/project/services/gaments7.jpeg",
+  "/project/services/gaments8.jpeg",
+  "/project/services/gaments9.jpeg",
+  "/project/services/gaments10.jpeg",
+];
+
 const events = "/project/services/events.jpeg";
 const office = "/project/services/office.jpeg";
 const coprate = "/project/services/coprate.jpeg";
@@ -20,6 +35,12 @@ const services = [
     name: "Signage Branding",
     img_url: sinage,
     category: "Signage",
+    gallery: [
+      sinage,
+      "/project/services/sinage2.jpeg",
+      "/project/services/sinage3.jpeg",
+    ],
+
     description:
       "Professional signage solutions designed to increase brand visibility and create a lasting impression across indoor and outdoor environments.",
     features: [
@@ -73,6 +94,7 @@ const services = [
     category: "Apparel",
     description:
       "Professional garment branding services for uniforms, corporate wear, promotional clothing, events, and marketing campaigns.",
+    gallery: gamentsGallery,
     features: [
       "T-Shirts",
       "Polo Shirts",
