@@ -10,6 +10,9 @@ import { Helmet } from "react-helmet-async";
 
 const sinage = "/project/services/sinage.jpeg";
 const promotional = "/project/services/promotional.jpeg";
+const gaments = "/project/services/garments.jpeg";
+const events = "/project/services/events.jpeg";
+const office = "/project/services/office.jpeg";
 
 const services = [
   {
@@ -65,7 +68,7 @@ const services = [
 
   {
     name: "Garments Printing",
-    img_url: "/images/placeholder.jpg",
+    img_url: gaments,
     category: "Apparel",
     description:
       "Professional garment branding services for uniforms, corporate wear, promotional clothing, events, and marketing campaigns.",
@@ -84,7 +87,7 @@ const services = [
 
   {
     name: "Exhibition & Event Branding",
-    img_url: "/images/placeholder.jpg",
+    img_url: events,
     category: "Branding",
     description:
       "Complete exhibition branding solutions that help businesses attract attention and create memorable event experiences.",
@@ -100,7 +103,7 @@ const services = [
 
   {
     name: "Office & Interior Branding",
-    img_url: "/images/placeholder.jpg",
+    img_url: office,
     category: "Branding",
     description:
       "Transform workspaces into visually engaging environments that reflect your company's identity while enhancing customer experience.",
