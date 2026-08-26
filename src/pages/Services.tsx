@@ -48,6 +48,19 @@ const outdoorGallery = [
   "/project/services/outd3.jpeg",
 ];
 
+// ----
+const cnc = "/project/services/c1.jpeg";
+// ---- Gallery
+const cncGallery = [
+  "/project/services/c1.jpeg",
+  "/project/services/c2.jpeg",
+  "/project/services/c3.jpeg",
+  "/project/services/c4.jpeg",
+  "/project/services/c5.jpeg",
+  "/project/services/c6.jpeg",
+  "/project/services/c7.jpeg",
+];
+
 const services = [
   {
     name: "Signage Branding",
@@ -178,8 +191,9 @@ const services = [
 
   {
     name: "CNC & Laser Branding",
-    img_url: "/images/placeholder.jpg",
+    img_url: cnc,
     category: "Branding",
+    gallery: cncGallery,
     description:
       "Precision CNC routing and laser cutting services for premium branded signage, displays, and custom fabricated products.",
     features: [
