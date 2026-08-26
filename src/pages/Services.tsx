@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import ServicesHero from "@/components/Services/ServicesHero";
 import ServiceCard from "@/components/Services/ServiceCard";
 import ProcessSection from "@/components/Services/ProcessSection";
-import TestimonialsSection from "@/components/Services/TestimonialsSection";
 import WhyChooseUs from "@/components/Services/WhyChooseUs";
 import ServicesCta from "@/components/Services/ServicesCta";
 import { Helmet } from "react-helmet-async";
@@ -39,6 +38,15 @@ const eventsGallery = [
 
 const office = "/project/services/office.jpeg";
 const coprate = "/project/services/coprate.jpeg";
+
+// -----
+const outdoor = "/project/services/outd1.jpeg";
+// ----
+const outdoorGallery = [
+  "/project/services/outd1.jpeg",
+  "/project/services/outd2.jpeg",
+  "/project/services/outd3.jpeg",
+];
 
 const services = [
   {
@@ -153,8 +161,9 @@ const services = [
 
   {
     name: "Outdoor Branding",
-    img_url: "/images/placeholder.jpg",
-    category: "Signage",
+    img_url: outdoor,
+    category: "Outdoor Branding",
+    gallery: outdoorGallery,
     description:
       "Large-format branding solutions built to maximize visibility and deliver high-impact advertising for businesses.",
     features: [
