@@ -1,7 +1,7 @@
 import { MessageCircle, ArrowUpRight } from "lucide-react";
 
 export default function ContactForm() {
-  const phoneNumber = "254700000000"; // Replace with the company's WhatsApp number
+  const phoneNumber = "254740653661"; // Replace with the company's WhatsApp number
 
   const message = encodeURIComponent(
     "Hello, I would like to enquire about your design and branding services.",
