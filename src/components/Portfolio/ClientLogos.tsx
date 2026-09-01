@@ -38,17 +38,6 @@ export default function ClientLogos() {
               Trusted by businesses we’re proud to work with.
             </h2>
           </div>
-
-          <a
-            href="#work"
-            className="group inline-flex w-fit items-center gap-2 text-sm font-semibold text-neutral-900"
-          >
-            View our work
-            <ArrowUpRight
-              size={16}
-              className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </a>
         </div>
 
         {/* Logo Grid */}
