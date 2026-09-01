@@ -98,29 +98,6 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
             </a>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-20 pt-10 border-t border-neutral-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <div>
-            <h3 className="text-2xl sm:text-3xl font-semibold text-neutral-900">
-              Like what you see?
-            </h3>
-
-            <p className="mt-2 text-neutral-500">
-              Discover more of our work and creative solutions.
-            </p>
-          </div>
-
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-neutral-900"
-          >
-            Explore our work
-            <span className="flex items-center justify-center w-9 h-9 rounded-full border border-neutral-300 transition-all duration-300 group-hover:bg-neutral-900 group-hover:text-white group-hover:border-neutral-900">
-              <ArrowUpRight size={16} />
-            </span>
-          </a>
-        </div>
       </div>
     </section>
   );

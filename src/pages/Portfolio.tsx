@@ -2,15 +2,15 @@ import { useState, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PortfolioHero from "@/components/Portfolio/PortfolioHero";
-import PortfolioFilter from "@/components/Portfolio/PortfolioFilter";
 import PortfolioGrid from "@/components/Portfolio/PortfolioGrid";
 import FeaturedProject from "@/components/Portfolio/FeaturedProject";
-import CategoryShowcase from "@/components/Portfolio/CategoryShowcase";
 import ClientLogos from "@/components/Portfolio/ClientLogos";
 import PortfolioCta from "@/components/Portfolio/PortfolioCta";
 import { Helmet } from "react-helmet-async";
 
 const sinageImage = "/project/sinage.jpeg";
+const thermalMugImage = "/project/thermalbrand.jpeg";
+const bagImage = "/project/bags.jpeg";
 
 const projects = [
   {
@@ -61,10 +61,9 @@ const projects = [
       "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_cbf2a3f536_30f8fb5500f7e7fa.png",
   },
   {
-    title: "Billboard Advertisement",
-    category: "Signage",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_9303101ff5_f1b59f2bcfe98d47.png",
+    title: "Thermal Mug Branding",
+    category: "Promotional Branding",
+    img_url: thermalMugImage,
   },
   {
     title: "Corporate Stationery Set",
@@ -73,10 +72,9 @@ const projects = [
       "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_dd9c9655cf_d05dcf4a9010e2db.png",
   },
   {
-    title: "Branded Tote Bags",
+    title: "Corporate Stationery Printing",
     category: "Promotional Items",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_6034f204eb_805c3f1c9c2081d8.png",
+    img_url: bagImage,
   },
   {
     title: "School Uniform Branding",
@@ -125,9 +123,6 @@ export default function Portfolio() {
 
           {/* Section 4: Featured Project */}
           <FeaturedProject />
-
-          {/* Section 5: Categories Showcase */}
-          <CategoryShowcase />
 
           {/* Section 6: Client Logos */}
           <ClientLogos />
