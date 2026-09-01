@@ -9,6 +9,7 @@ import {
   Linkedin,
   Clock,
 } from "lucide-react";
+import { FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 
 const contactDetails = [
@@ -35,6 +36,24 @@ const contactDetails = [
     title: "Website",
     details: ["www.depotcovers.co.ke"],
     href: "https://www.depotcovers.co.ke",
+  },
+];
+
+const socialLinks = [
+  {
+    name: "TikTok",
+    icon: FaTiktok,
+    href: "https://www.tiktok.com/@depotcoverscompany",
+  },
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://www.instagram.com/dcckenya",
+  },
+  {
+    name: "Whatsapp",
+    icon: FaWhatsapp,
+    href: "https://wa.me/254740653661",
   },
 ];
 
@@ -112,15 +131,20 @@ export default function ContactInfo() {
           Follow Us On Social Media
         </p>
         <div className="flex justify-center sm:justify-start gap-4">
-          {[Facebook, Instagram, Twitter, Linkedin].map((Icon, i) => (
+          {" "}
+          {socialLinks.map(({ name, icon: Icon, href }) => (
             <a
-              key={i}
-              href="#"
-              className="w-10 h-10 rounded-full bg-accent hover:bg-primary text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg shadow-accent/20"
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={name}
+              className="w-10 h-10 rounded-full bg-accent hover:bg-primary text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg shadow-accent/20"
             >
-              <Icon className="w-5 h-5" />
+              {" "}
+              <Icon className="w-5 h-5" />{" "}
             </a>
-          ))}
+          ))}{" "}
         </div>
       </div>
     </div>
