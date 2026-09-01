@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet-async";
 const sinageImage = "/project/sinage.jpeg";
 const thermalMugImage = "/project/thermalbrand.jpeg";
 const bagImage = "/project/bags.jpeg";
+const capImage = "/project/cap.jpeg";
 
 const projects = [
   {
@@ -57,8 +58,7 @@ const projects = [
   {
     title: "Custom Branded Caps",
     category: "Apparel Branding",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_cbf2a3f536_30f8fb5500f7e7fa.png",
+    img_url: capImage,
   },
   {
     title: "Thermal Mug Branding",

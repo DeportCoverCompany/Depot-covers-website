@@ -36,66 +36,70 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
             solutions crafted with attention to detail.
           </p>
         </div>
-
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12 lg:gap-x-8 lg:gap-y-16">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => (
-            <a
+            <div
               key={index}
-              href={project.href || "#"}
-              className={`group block ${
-                index % 3 === 0 ? "md:col-span-2" : ""
-              }`}
+              className={`group ${index === 0 ? "md:col-span-2" : ""}`}
             >
               {/* Image */}
               <div
-                className={`relative overflow-hidden rounded-2xl bg-neutral-100 ${
-                  index % 3 === 0 ? "aspect-[16/8]" : "aspect-[4/3]"
+                className={`relative overflow-hidden rounded-[1.5rem] bg-neutral-100 ${
+                  index === 0 ? "aspect-[16/8]" : "aspect-[4/3]"
                 }`}
               >
+                {/* Blurred Background */}
                 <img
                   src={project.img_url}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl opacity-60 transition-transform duration-700 group-hover:scale-125"
                 />
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+                {/* Soft background */}
+                <div className="absolute inset-0 bg-white/10" />
 
-                {/* Category */}
-                <div className="absolute top-5 left-5">
-                  <Badge className="bg-white text-neutral-900 hover:bg-white border-0 px-3 py-1.5 shadow-sm">
-                    {project.category}
-                  </Badge>
+                {/* Main Image */}
+                <div className="relative flex h-full w-full items-center justify-center p-5 sm:p-8 lg:p-10">
+                  <img
+                    src={project.img_url}
+                    alt={project.title}
+                    className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                  />
                 </div>
 
-                {/* Arrow */}
-                <div className="absolute top-5 right-5">
-                  <div className="w-11 h-11 rounded-full bg-white flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                {/* Hover interaction */}
+                <div className="pointer-events-none absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/[0.04]" />
+
+                {/* View button */}
+                <div className="absolute bottom-5 right-5 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-xl">
                     <ArrowUpRight size={19} className="text-neutral-900" />
                   </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="mt-5 flex items-start justify-between gap-6">
+              {/* Caption */}
+              <div className="mt-4 flex items-start justify-between gap-4 px-1">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-neutral-900 tracking-tight">
+                  <h3 className="text-lg font-semibold tracking-tight text-neutral-900 sm:text-xl">
                     {project.title}
                   </h3>
 
                   {project.description && (
-                    <p className="mt-2 text-sm sm:text-base text-neutral-500 max-w-lg leading-relaxed">
+                    <p className="mt-1 text-sm leading-relaxed text-neutral-500">
                       {project.description}
                     </p>
                   )}
                 </div>
 
-                <span className="hidden sm:flex shrink-0 text-xs uppercase tracking-wider text-neutral-400 pt-1">
+                <span className="mt-1 shrink-0 text-xs font-medium uppercase tracking-[0.15em] text-neutral-400">
                   {project.category}
                 </span>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
