@@ -119,14 +119,6 @@ export default function Portfolio() {
           {/* Section 1: Hero */}
           <PortfolioHero />
 
-          {/* Section 2: Category Filter */}
-          <PortfolioFilter
-            categories={categories}
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-            count={filteredProjects.length}
-          />
-
           {/* Section 3: Portfolio Grid */}
           <PortfolioGrid projects={filteredProjects} />
 

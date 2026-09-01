@@ -17,7 +17,7 @@ export default function PortfolioHero() {
             Home
           </Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-white">Portfolio</span>
+          <span className="text-white">Marketing</span>
         </nav>
 
         {/* Hero Content */}
