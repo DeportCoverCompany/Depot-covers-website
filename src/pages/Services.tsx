@@ -35,9 +35,34 @@ const eventsGallery = [
   "/project/services/ex5.jpeg",
   "/project/services/ex6.jpeg",
 ];
-
+// ---
 const office = "/project/services/office.jpeg";
+// --- Gallery
+const officeGallery = [
+  "/project/services/of1.jpeg",
+  "/project/services/of2.jpeg",
+  "/project/services/of3.jpeg",
+  "/project/services/of4.jpeg",
+];
+
 const coprate = "/project/services/coprate.jpeg";
+// ---- Gallery Coprate
+const coprateGallery = [
+  "/project/services/cop1.jpeg",
+  "/project/services/cop2.jpeg",
+  "/project/services/cop3.jpeg",
+  "/project/services/cop4.jpeg",
+  "/project/services/cop5.jpeg",
+  "/project/services/cop6.jpeg",
+  "/project/services/cop7.jpeg",
+  "/project/services/cop8.jpeg",
+  "/project/services/cop9.jpeg",
+  "/project/services/cop10.jpeg",
+  "/project/services/cop11.jpeg",
+  "/project/services/cop12.jpeg",
+  "/project/services/cop13.jpeg",
+  "/project/services/cop14.jpeg",
+];
 
 // -----
 const outdoor = "/project/services/outd1.jpeg";
@@ -105,6 +130,7 @@ const services = [
     name: "Corporate Stationery Printing",
     img_url: coprate,
     category: "Printing",
+    gallery: coprateGallery,
     description:
       "High-quality business stationery that reinforces your corporate identity and ensures consistency across all communications.",
     features: [
@@ -159,6 +185,7 @@ const services = [
   {
     name: "Office & Interior Branding",
     img_url: office,
+    gallery: officeGallery,
     category: "Branding",
     description:
       "Transform workspaces into visually engaging environments that reflect your company's identity while enhancing customer experience.",
