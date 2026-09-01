@@ -9,6 +9,35 @@ import { Helmet } from "react-helmet-async";
 
 const sinage = "/project/services/sinage.jpeg";
 const promotional = "/project/services/promotional.jpeg";
+// ---- Gallery ----
+const PromotionalGallery = [
+  "/project/services/p1.jpeg",
+  "/project/services/p2.jpeg",
+  "/project/services/p3.jpeg",
+  "/project/services/p4.jpeg",
+  "/project/services/p5.jpeg",
+  "/project/services/p6.jpeg",
+  "/project/services/p7.jpeg",
+  "/project/services/p8.jpeg",
+  "/project/services/p9.jpeg",
+  "/project/services/p10.jpeg",
+  "/project/services/p11.jpeg",
+  "/project/services/p12.jpeg",
+  "/project/services/p13.jpeg",
+  "/project/services/p14.jpeg",
+  "/project/services/p15.jpeg",
+  "/project/services/p16.jpeg",
+  "/project/services/p17.jpeg",
+  "/project/services/p18.jpeg",
+  "/project/services/p19.jpeg",
+  "/project/services/p20.jpeg",
+  "/project/services/p21.jpeg",
+  "/project/services/p22.jpeg",
+  "/project/services/p23.jpeg",
+  "/project/services/p24.jpeg",
+  "/project/services/p26.jpeg",
+];
+
 // ----
 const gaments = "/project/services/garments.jpeg";
 // ----- Garments Gallery
@@ -112,6 +141,7 @@ const services = [
   {
     name: "Promotional Branding",
     img_url: promotional,
+    gallery: PromotionalGallery,
     category: "Promotional",
     description:
       "Custom branded merchandise that strengthens brand recognition and keeps your business visible through everyday promotional products.",
