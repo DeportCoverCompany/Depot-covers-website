@@ -230,10 +230,41 @@ export default function Footer() {
               rights reserved.
             </p>
             <p className="text-white/40 text-sm">
-              Nairobi, Kenya · Branding · Printing · Visual Solutions
+              Website Designed and built by{" "}
+              <a
+                href="https://www.leadforgestudio.co.ke/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[hsl(25,95%,53%)] hover:text-white transition-colors"
+              >
+                Leadforge Studio Kenya
+              </a>
             </p>
           </div>
         </div>
+      </div>
+
+      {/* Back to Top Button */}
+      <div className="fixed bottom-5 right-5 z-50">
+        <a
+          href="#top"
+          className="w-10 h-10 rounded-full bg-[hsl(25,95%,53%)] flex items-center justify-center shadow-lg hover:bg-[hsl(25,95%,60%)] transition-colors duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-5 h-5 text-white"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 15.75l7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </a>
       </div>
     </footer>
   );
