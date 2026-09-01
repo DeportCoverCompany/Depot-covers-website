@@ -10,12 +10,13 @@ import ClientLogos from "@/components/Portfolio/ClientLogos";
 import PortfolioCta from "@/components/Portfolio/PortfolioCta";
 import { Helmet } from "react-helmet-async";
 
+const sinageImage = "/project/sinage.jpeg";
+
 const projects = [
   {
-    title: "Retail Store Signage",
+    title: "Car Wash Signage",
     category: "Signage",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_6abef455a8_54b77d72d2ba8907.png",
+    img_url: sinageImage,
   },
   {
     title: "Corporate Brochure Printing",
