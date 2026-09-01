@@ -120,11 +120,7 @@ const services = [
     name: "Signage Branding",
     img_url: sinage,
     category: "Signage",
-    gallery: [
-      sinage,
-      "/project/services/sinage2.jpeg",
-      "/project/services/sinage3.jpeg",
-    ],
+    gallery: [sinage],
 
     description:
       "Professional signage solutions designed to increase brand visibility and create a lasting impression across indoor and outdoor environments.",
