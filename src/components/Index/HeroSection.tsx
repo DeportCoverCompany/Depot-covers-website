@@ -131,7 +131,7 @@ export default function HeroSection() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative h-[560px] overflow-hidden bg-black sm:h-[600px] md:h-[650px] lg:h-[700px] mt-4 mb-4"
+      className="relative mt-4 mb-4 h-[500px] overflow-hidden bg-black sm:h-[560px] md:h-[650px] lg:h-[700px]"
     >
       {/* =====================================================
       SLIDES
