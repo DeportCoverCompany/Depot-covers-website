@@ -12,6 +12,8 @@ const sinageImage = "/project/sinage.jpeg";
 const thermalMugImage = "/project/thermalbrand.jpeg";
 const bagImage = "/project/bags.jpeg";
 const capImage = "/project/cap.jpeg";
+const coporateImage = "/project/marketing/mk1.jpeg";
+const coporateImage2 = "/project/marketing/mk2.jpeg";
 
 const projects = [
   {
@@ -22,8 +24,7 @@ const projects = [
   {
     title: "Corporate Brochure Printing",
     category: "Printing",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_921408bda6_ddedacd7be9e9f63.png",
+    img_url: coporateImage,
   },
   {
     title: "Branded Staff Uniforms",
@@ -52,8 +53,7 @@ const projects = [
   {
     title: "Business Card Collection",
     category: "Printing",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_f383433e5b_10bd50b08fa9973b.png",
+    img_url: coporateImage2,
   },
   {
     title: "Custom Branded Caps",
