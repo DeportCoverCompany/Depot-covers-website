@@ -133,32 +133,82 @@ export default function HeroSection() {
       onTouchEnd={handleTouchEnd}
       className="relative h-[560px] overflow-hidden bg-black sm:h-[600px] md:h-[650px] lg:h-[700px] mt-4 mb-4"
     >
-      {/* SLIDES */}
+      {/* =====================================================
+      SLIDES
+  ====================================================== */}
+
       {slides.map((slide, index) => {
         const isActive = currentSlide === index;
 
         return (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
               isActive
                 ? "z-20 opacity-100"
                 : "pointer-events-none z-10 opacity-0"
             }`}
           >
-            {/* MAIN IMAGE */}
-            <div className="absolute inset-0">
+            {/* =================================================
+            FULL-BLEED BACKGROUND
+            Uses the same image to eliminate empty areas
+        ================================================== */}
+
+            <div className="absolute inset-0 overflow-hidden">
+              <div
+                className={`absolute inset-0 scale-125 bg-cover bg-center blur-3xl transition-transform duration-[12000ms] ease-linear ${
+                  isActive ? "scale-[1.25]" : "scale-[1.1]"
+                }`}
+                style={{
+                  backgroundImage: `url("${slide.image}")`,
+                }}
+              />
+
+              {/* Dark overlay for depth */}
+              <div className="absolute inset-0 bg-black/40" />
+
+              {/* Slight vignette */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.35)_100%)]" />
+
+              {/* Bottom gradient for navigation readability */}
+              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            </div>
+
+            {/* =================================================
+            MAIN IMAGE
+
+            object-contain means:
+            - NO CROPPING
+            - Entire image remains visible
+            - Scales as large as possible
+        ================================================== */}
+
+            <div className="absolute inset-0 flex items-center justify-center">
               <img
                 src={slide.image}
                 alt={slide.title}
                 draggable={false}
-                className={`h-full w-full select-none object-cover object-center transition-transform duration-[10000ms] ease-linear md:object-contain ${
-                  isActive ? "scale-[1.02]" : "scale-100"
+                className={`relative z-10 block h-full w-full object-contain object-center transition-transform duration-[12000ms] ease-linear ${
+                  isActive ? "scale-[1.015]" : "scale-100"
                 }`}
               />
             </div>
 
-            {/* TOP PROGRESS BAR */}
+            {/* =================================================
+            SUBTLE IMAGE SHADOW
+
+            Makes the actual image separate naturally
+            from the blurred background.
+        ================================================== */}
+
+            <div className="pointer-events-none absolute inset-0 z-20">
+              <div className="absolute inset-0 bg-transparent" />
+            </div>
+
+            {/* =================================================
+            TOP PROGRESS BAR
+        ================================================== */}
+
             <div className="absolute left-0 right-0 top-0 z-50 h-[3px] bg-white/20">
               {isActive && (
                 <div
@@ -174,11 +224,17 @@ export default function HeroSection() {
         );
       })}
 
-      {/* BOTTOM NAVIGATION */}
+      {/* =====================================================
+      BOTTOM NAVIGATION
+  ====================================================== */}
+
       <div className="pointer-events-none absolute bottom-7 left-0 z-[60] w-full px-6 md:bottom-9 md:px-12">
         <div className="mx-auto flex max-w-7xl items-end justify-between">
+          {/* Counter + indicators */}
+
           <div className="pointer-events-auto flex items-center gap-5 sm:gap-8">
             {/* Counter */}
+
             <div
               className="text-lg font-light tracking-[0.2em] text-white sm:text-2xl"
               style={{
@@ -196,6 +252,7 @@ export default function HeroSection() {
             </div>
 
             {/* Indicators */}
+
             <div className="flex items-center gap-2.5">
               {slides.map((_, index) => (
                 <button
@@ -213,6 +270,7 @@ export default function HeroSection() {
           </div>
 
           {/* Scroll indicator */}
+
           <div className="pointer-events-auto hidden flex-col items-center gap-3 md:flex">
             <span
               className="rotate-90 text-[10px] uppercase tracking-[0.35em] text-white/80"
@@ -230,7 +288,10 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* FLOATING NAVIGATION */}
+      {/* =====================================================
+      FLOATING NAVIGATION
+  ====================================================== */}
+
       <div className="absolute right-4 top-1/2 z-[60] flex -translate-y-1/2 flex-col gap-3 sm:right-6 md:right-8 md:gap-4 lg:right-10">
         <Button
           size="icon"
@@ -253,12 +314,19 @@ export default function HeroSection() {
         </Button>
       </div>
 
-      {/* PRELOADER */}
+      {/* =====================================================
+      IMAGE PRELOADER
+  ====================================================== */}
+
       <div className="hidden" aria-hidden="true">
         {slides.map((slide) => (
           <img key={`preload-${slide.id}`} src={slide.image} alt="" />
         ))}
       </div>
+
+      {/* =====================================================
+      PROGRESS ANIMATION
+  ====================================================== */}
 
       <style>{`
     @keyframes slideProgress {
