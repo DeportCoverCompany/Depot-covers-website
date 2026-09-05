@@ -38,7 +38,7 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
         </div>
         {/* Portfolio Grid */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -46,7 +46,7 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
             >
               {/* Image */}
               <div
-                className={`relative overflow-hidden rounded-[1.5rem] bg-neutral-100 ${
+                className={`relative overflow-hidden bg-neutral-100 ${
                   index === 0 ? "aspect-[16/8]" : "aspect-[4/3]"
                 }`}
               >
@@ -62,11 +62,11 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
                 <div className="absolute inset-0 bg-white/10" />
 
                 {/* Main Image */}
-                <div className="relative flex h-full w-full items-center justify-center p-5 sm:p-8 lg:p-10">
+                <div className="relative flex h-full w-full items-center justify-center p-1 sm:p-8 lg:p-1">
                   <img
                     src={project.img_url}
                     alt={project.title}
-                    className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+                    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
                   />
                 </div>
 
