@@ -7,14 +7,12 @@ import { ArrowRight, ChevronUp, ChevronDown } from "lucide-react";
 const AUTO_PLAY_DELAY = 10000;
 
 // Images from public/
-const slide1 = "/project/Slide-1.jpg";
-const slide2 = "/project/slide-2.jpg";
-const slide3 = "/project/slide-3.jpg";
-const slide4 = "/project/slide-4.jpg";
-const slide5 = "/project/slide-5.jpeg";
-const slide6 = "/project/slide-6.jpeg";
-const slide7 = "/project/slide-7.jpeg";
-const slide8 = "/project/slide-8.jpeg";
+const slide1 = "/project/home-page-slider/slide1.jpeg";
+const slide2 = "/project/home-page-slider/slide2.jpeg";
+const slide3 = "/project/home-page-slider/slide3.jpeg";
+const slide4 = "/project/home-page-slider/slide4.jpeg";
+const slide5 = "/project/home-page-slider/slide5.jpeg";
+const slide6 = "/project/home-page-slider/slide6.jpeg";
 
 const slides = [
   {
@@ -70,24 +68,6 @@ const slides = [
     description:
       "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
     image: slide6,
-  },
-  {
-    id: 7,
-    badge: "Large Format Printing",
-    title: "Print Bigger.",
-    highlight: "Get Noticed.",
-    description:
-      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
-    image: slide7,
-  },
-  {
-    id: 8,
-    badge: "Large Format Printing",
-    title: "Print Bigger.",
-    highlight: "Get Noticed.",
-    description:
-      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
-    image: slide8,
   },
 ];
 
@@ -151,95 +131,106 @@ export default function HeroSection() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative h-[560px] overflow-hidden bg-white sm:h-[600px] md:h-[650px] lg:h-[700px]"
+      className="relative h-[560px] overflow-hidden bg-black sm:h-[600px] md:h-[650px] lg:h-[700px]"
     >
-      {/* =========================================
-          SLIDES
-      ========================================== */}
+      {/* =====================================================
+      SLIDES
+  ====================================================== */}
 
-      <div className="absolute inset-0 px-3 py-3 md:px-6 md:py-5 lg:px-10 lg:py-6">
-        {slides.map((slide, index) => {
-          const isActive = currentSlide === index;
+      {slides.map((slide, index) => {
+        const isActive = currentSlide === index;
 
-          return (
-            <div
-              key={slide.id}
-              className={`absolute inset-3 overflow-hidden rounded-2xl shadow-2xl transition-all duration-1000 ease-in-out md:inset-x-6 md:inset-y-5 lg:inset-x-10 lg:inset-y-6 ${
-                isActive
-                  ? "z-20 opacity-100"
-                  : "pointer-events-none z-10 opacity-0"
-              }`}
-            >
-              {/* =========================================
-                  BLURRED BACKGROUND
-              ========================================== */}
+        return (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
+              isActive
+                ? "z-20 opacity-100"
+                : "pointer-events-none z-10 opacity-0"
+            }`}
+          >
+            {/* =================================================
+            FULL-BLEED BACKGROUND
+            Uses the same image to eliminate empty areas
+        ================================================== */}
 
-              <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden">
+              <div
+                className={`absolute inset-0 scale-125 bg-cover bg-center blur-3xl transition-transform duration-[12000ms] ease-linear ${
+                  isActive ? "scale-[1.25]" : "scale-[1.1]"
+                }`}
+                style={{
+                  backgroundImage: `url("${slide.image}")`,
+                }}
+              />
+
+              {/* Dark overlay for depth */}
+              <div className="absolute inset-0 bg-black/40" />
+
+              {/* Slight vignette */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.35)_100%)]" />
+
+              {/* Bottom gradient for navigation readability */}
+              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            </div>
+
+            {/* =================================================
+            MAIN IMAGE
+
+            object-contain means:
+            - NO CROPPING
+            - Entire image remains visible
+            - Scales as large as possible
+        ================================================== */}
+
+            <div className="absolute inset-0 flex items-center justify-center">
+              <img
+                src={slide.image}
+                alt={slide.title}
+                draggable={false}
+                className={`relative z-10 block h-full w-full object-contain object-center transition-transform duration-[12000ms] ease-linear ${
+                  isActive ? "scale-[1.015]" : "scale-100"
+                }`}
+              />
+            </div>
+
+            {/* =================================================
+            SUBTLE IMAGE SHADOW
+
+            Makes the actual image separate naturally
+            from the blurred background.
+        ================================================== */}
+
+            <div className="pointer-events-none absolute inset-0 z-20">
+              <div className="absolute inset-0 bg-transparent" />
+            </div>
+
+            {/* =================================================
+            TOP PROGRESS BAR
+        ================================================== */}
+
+            <div className="absolute left-0 right-0 top-0 z-50 h-[3px] bg-white/20">
+              {isActive && (
                 <div
-                  className={`absolute inset-0 scale-110 bg-cover bg-center blur-2xl transition-transform duration-[10000ms] ease-linear ${
-                    isActive ? "scale-110" : "scale-100"
-                  }`}
+                  key={`progress-${currentSlide}`}
+                  className="h-full bg-orange-500"
                   style={{
-                    backgroundImage: `url("${slide.image}")`,
+                    animation: `slideProgress ${AUTO_PLAY_DELAY}ms linear forwards`,
                   }}
                 />
-
-                {/* Dark tint */}
-                <div className="absolute inset-0 bg-black/35" />
-
-                {/* Subtle orange tint */}
-                <div className="absolute inset-0 bg-orange-950/10" />
-              </div>
-
-              {/* =========================================
-                  MAIN IMAGE
-              ========================================== */}
-
-              <div className="absolute inset-0 flex items-center justify-center">
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  className={`relative z-10 h-full w-full object-contain object-center transition-transform duration-[10000ms] ease-linear ${
-                    isActive ? "scale-[1.02]" : "scale-100"
-                  }`}
-                />
-              </div>
-
-              {/* =========================================
-                  IMAGE READABILITY OVERLAY
-              ========================================== */}
-
-              {/* =========================================
-                  TOP PROGRESS BAR
-              ========================================== */}
-
-              <div className="absolute left-0 right-0 top-0 z-50 h-1 bg-white/20">
-                {isActive && (
-                  <div
-                    key={`progress-${currentSlide}`}
-                    className="h-full bg-orange-500"
-                    style={{
-                      animation: `slideProgress ${AUTO_PLAY_DELAY}ms linear forwards`,
-                    }}
-                  />
-                )}
-              </div>
-
-              {/* =========================================
-                  CONTENT
-              ========================================== */}
+              )}
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
 
-      {/* =========================================
-          BOTTOM NAVIGATION
-      ========================================== */}
+      {/* =====================================================
+      BOTTOM NAVIGATION
+  ====================================================== */}
 
-      <div className="pointer-events-none absolute bottom-7 left-0 z-50 w-full px-6 md:bottom-9 md:px-12">
+      <div className="pointer-events-none absolute bottom-7 left-0 z-[60] w-full px-6 md:bottom-9 md:px-12">
         <div className="mx-auto flex max-w-7xl items-end justify-between">
-          {/* Counter + Indicators */}
+          {/* Counter + indicators */}
 
           <div className="pointer-events-auto flex items-center gap-5 sm:gap-8">
             {/* Counter */}
@@ -278,9 +269,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* =========================================
-              SCROLL INDICATOR
-          ========================================== */}
+          {/* Scroll indicator */}
 
           <div className="pointer-events-auto hidden flex-col items-center gap-3 md:flex">
             <span
@@ -299,11 +288,11 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* =========================================
-          FLOATING NAVIGATION
-      ========================================== */}
+      {/* =====================================================
+      FLOATING NAVIGATION
+  ====================================================== */}
 
-      <div className="absolute right-4 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-3 sm:right-6 md:right-8 md:gap-4 lg:right-10">
+      <div className="absolute right-4 top-1/2 z-[60] flex -translate-y-1/2 flex-col gap-3 sm:right-6 md:right-8 md:gap-4 lg:right-10">
         <Button
           size="icon"
           variant="outline"
@@ -325,9 +314,9 @@ export default function HeroSection() {
         </Button>
       </div>
 
-      {/* =========================================
-          IMAGE PRELOADER
-      ========================================== */}
+      {/* =====================================================
+      IMAGE PRELOADER
+  ====================================================== */}
 
       <div className="hidden" aria-hidden="true">
         {slides.map((slide) => (
@@ -335,21 +324,21 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* =========================================
-          PROGRESS BAR ANIMATION
-      ========================================== */}
+      {/* =====================================================
+      PROGRESS ANIMATION
+  ====================================================== */}
 
       <style>{`
-        @keyframes slideProgress {
-          from {
-            width: 0%;
-          }
+    @keyframes slideProgress {
+      from {
+        width: 0%;
+      }
 
-          to {
-            width: 100%;
-          }
-        }
-      `}</style>
+      to {
+        width: 100%;
+      }
+    }
+  `}</style>
     </section>
   );
 }
