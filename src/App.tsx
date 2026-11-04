@@ -38,7 +38,15 @@ const App = () => (
   //       </Routes>
   //     </BrowserRouter>
   //   </TooltipProvider>
-  <div>not available</div>
+  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="text-center animate-pulse">
+      <div className="text-5xl mb-4 text-amber-500 animate-bounce">⚠️</div>
+      <h2 className="text-2xl font-semibold text-gray-800">Not Available</h2>
+      <p className="mt-2 text-sm text-gray-500">
+        This feature is currently unavailable.
+      </p>
+    </div>
+  </div>
 );
 
 export default App;
