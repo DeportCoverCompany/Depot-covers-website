@@ -43,7 +43,7 @@ const App = () => (
       <div className="text-5xl mb-4 text-amber-500 animate-bounce">⚠️</div>
       <h2 className="text-2xl font-semibold text-gray-800">Not Available</h2>
       <p className="mt-2 text-sm text-gray-500">
-        This feature is currently unavailable.
+        This website is currently unavailable. until further notice.
       </p>
     </div>
   </div>
