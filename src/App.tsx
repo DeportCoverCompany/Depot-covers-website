@@ -18,27 +18,27 @@ import ServiceDetail from "./pages/ServiceDetail";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <TopBar />
-        <ScrollToTop />
-        <WhatsAppButton />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/marketing" element={<Portfolio />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/process" element={<Process />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/servicedetails" element={<ServiceDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  // <QueryClientProvider client={queryClient}>
+  //   <TooltipProvider>
+  //     <Toaster />
+  //     <Sonner />
+  //     <BrowserRouter>
+  //       <TopBar />
+  //       <ScrollToTop />
+  //       <WhatsAppButton />
+  //       <Routes>
+  //         <Route path="/" element={<Index />} />
+  //         <Route path="/services" element={<Services />} />
+  //         <Route path="/marketing" element={<Portfolio />} />
+  //         <Route path="/about" element={<About />} />
+  //         <Route path="/process" element={<Process />} />
+  //         <Route path="/contact" element={<Contact />} />
+  //         <Route path="/servicedetails" element={<ServiceDetail />} />
+  //         <Route path="*" element={<NotFound />} />
+  //       </Routes>
+  //     </BrowserRouter>
+  //   </TooltipProvider>
+  <div>not available</div>
 );
 
 export default App;
