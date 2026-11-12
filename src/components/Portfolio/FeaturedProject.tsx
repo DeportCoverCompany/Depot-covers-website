@@ -1,5 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export default function FeaturedProject() {
   const features = [
@@ -17,14 +17,22 @@ export default function FeaturedProject() {
           <div className="relative group">
             <div className="absolute -inset-4 bg-accent/20 rounded-2xl blur-2xl group-hover:bg-accent/30 transition-all duration-500"></div>
             <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-              <img className="w-full h-auto aspect-[4/3] object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_88059966e9_7d708cf4e71f238b.png" alt="award-winning complete brand identity signage printing project Kenya" />
+              <img
+                className="w-full h-auto aspect-[4/3] object-cover"
+                src="/project/portfolio/featured-brand-identity.webp"
+                alt="Complete brand identity, signage and print project by Depot Covers Company Kenya"
+                width={1200}
+                height={900}
+                loading="lazy"
+                decoding="async"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-40"></div>
             </div>
           </div>
 
           {/* Text Side */}
           <div className="text-white">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-wider mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-orange-400/10 border border-orange-400/20 text-orange-300 text-xs font-bold uppercase tracking-wider mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
@@ -41,15 +49,18 @@ export default function FeaturedProject() {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {features.map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-orange-400 flex-shrink-0" />
                   <span className="text-white/80 font-medium">{item}</span>
                 </li>
               ))}
             </ul>
 
-            <Button className="bg-accent hover:bg-accent/90 text-white px-8 py-6 h-auto text-lg font-bold rounded-xl shadow-lg transition-all hover:-translate-y-1">
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-lg font-bold text-white shadow-lg transition-all hover:-translate-y-1 hover:bg-accent/90"
+            >
               View Similar Projects
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -93,9 +93,9 @@ export default function StepTwo({ form }: StepTwoProps) {
                         )}
                       </div>
 
-                      <h4 className="font-semibold text-primary">
+                      <h3 className="font-semibold text-primary">
                         {service.label}
-                      </h4>
+                      </h3>
                     </button>
                   );
                 })}
@@ -133,9 +133,9 @@ export default function StepTwo({ form }: StepTwoProps) {
                         active ? "border-accent bg-accent/10" : "border-border",
                       )}
                     >
-                      <h4 className="font-semibold text-primary">
+                      <h3 className="font-semibold text-primary">
                         {timeline.label}
-                      </h4>
+                      </h3>
 
                       <p className="mt-2 text-sm text-muted-foreground">
                         {timeline.description}
@@ -177,9 +177,9 @@ export default function StepTwo({ form }: StepTwoProps) {
                         active ? "border-accent bg-accent/10" : "border-border",
                       )}
                     >
-                      <h4 className="font-semibold text-primary">
+                      <h3 className="font-semibold text-primary">
                         {budget.label}
-                      </h4>
+                      </h3>
                     </button>
                   );
                 })}
@@ -194,7 +194,7 @@ export default function StepTwo({ form }: StepTwoProps) {
       {/* TIP */}
 
       <div className="rounded-2xl border bg-muted/40 p-6">
-        <h4 className="font-semibold text-primary mb-2">Need help choosing?</h4>
+        <h3 className="font-semibold text-primary mb-2">Need help choosing?</h3>
 
         <p className="text-sm leading-7 text-muted-foreground">
           Don't worry if you're unsure about the exact service or budget. Select

@@ -17,11 +17,11 @@ export default function PortfolioHero() {
             Home
           </Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-white">Marketing</span>
+          <span className="text-white">Portfolio</span>
         </nav>
 
         {/* Hero Content */}
-        <div className="inline-block px-4 py-1.5 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-bold tracking-wider uppercase mb-6">
+        <div className="inline-block px-4 py-1.5 rounded-full bg-orange-400/20 border border-orange-400/30 text-orange-200 text-sm font-bold tracking-wider uppercase mb-6">
           Our Work
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">
@@ -36,7 +36,7 @@ export default function PortfolioHero() {
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
           {stats.map((stat, idx) => (
             <div key={idx} className="flex items-center gap-3">
-              <span className="text-2xl md:text-3xl font-bold text-accent">
+              <span className="text-2xl md:text-3xl font-bold text-orange-300">
                 {stat.value}
               </span>
               <span className="text-white/60 font-medium uppercase tracking-wide text-xs">

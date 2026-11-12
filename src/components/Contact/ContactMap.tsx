@@ -25,7 +25,7 @@ export default function ContactMap() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
-          <span className="inline-flex rounded-full bg-red-100 px-4 py-1 text-sm font-semibold text-red-600">
+          <span className="inline-flex rounded-full bg-red-50 px-4 py-1 text-sm font-semibold text-red-700">
             Visit Our Office
           </span>
 

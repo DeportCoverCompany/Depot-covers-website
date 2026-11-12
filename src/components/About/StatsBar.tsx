@@ -13,7 +13,7 @@ export default function StatsBar() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center text-center">
           {stats.map((stat, idx) => (
             <div key={idx} className="space-y-1">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-accent">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-orange-300">
                 {stat.value}
               </div>
               <div className="text-white/60 text-xs md:text-sm font-bold uppercase tracking-widest">

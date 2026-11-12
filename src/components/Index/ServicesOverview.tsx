@@ -15,7 +15,6 @@ import {
 const services = [
   {
     name: "Signage Branding",
-    img_url: "/images/placeholder.jpg",
     category: "Signage",
     description:
       "Professional signage solutions designed to increase brand visibility and create a lasting impression across indoor and outdoor environments.",
@@ -32,7 +31,6 @@ const services = [
 
   {
     name: "Promotional Branding",
-    img_url: "/images/placeholder.jpg",
     category: "Promotional",
     description:
       "Custom branded merchandise that strengthens brand recognition and keeps your business visible through everyday promotional products.",
@@ -50,7 +48,6 @@ const services = [
 
   {
     name: "Corporate Stationery Printing",
-    img_url: "/images/placeholder.jpg",
     category: "Printing",
     description:
       "High-quality business stationery that reinforces your corporate identity and ensures consistency across all communications.",
@@ -69,7 +66,6 @@ const services = [
 
   {
     name: "Garments Printing",
-    img_url: "/images/placeholder.jpg",
     category: "Apparel",
     description:
       "Professional garment branding services for uniforms, corporate wear, promotional clothing, events, and marketing campaigns.",
@@ -89,7 +85,6 @@ const services = [
 
   {
     name: "Exhibition & Event Branding",
-    img_url: "/images/placeholder.jpg",
     category: "Branding",
     description:
       "Complete exhibition branding solutions that help businesses attract attention and create memorable event experiences.",
@@ -106,7 +101,6 @@ const services = [
 
   {
     name: "Office & Interior Branding",
-    img_url: "/images/placeholder.jpg",
     category: "Branding",
     description:
       "Transform workspaces into visually engaging environments that reflect your company's identity while enhancing customer experience.",
@@ -123,7 +117,6 @@ const services = [
 
   {
     name: "Outdoor Branding",
-    img_url: "/images/placeholder.jpg",
     category: "Signage",
     description:
       "Large-format branding solutions built to maximize visibility and deliver high-impact advertising for businesses.",
@@ -140,7 +133,6 @@ const services = [
 
   {
     name: "CNC & Laser Branding",
-    img_url: "/images/placeholder.jpg",
     category: "Branding",
     description:
       "Precision CNC routing and laser cutting services for premium branded signage, displays, and custom fabricated products.",

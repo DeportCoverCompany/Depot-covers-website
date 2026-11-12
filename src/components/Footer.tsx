@@ -12,14 +12,14 @@ const navLinks = [
 ];
 
 const services = [
-  "Paper Printing",
-  "Screen Printing",
-  "Large Format Printing",
-  "Signages",
-  "Embroidery",
-  "Promotional Items",
-  "Advertisement Solutions",
-  "Branding",
+  { label: "Signage Branding", path: "/services/signage-branding" },
+  { label: "Promotional Branding", path: "/services/promotional-branding" },
+  { label: "Corporate Stationery", path: "/services/corporate-stationery-printing" },
+  { label: "Garment Printing", path: "/services/garment-printing" },
+  { label: "Exhibition Branding", path: "/services/exhibition-event-branding" },
+  { label: "Office Branding", path: "/services/office-interior-branding" },
+  { label: "Outdoor Branding", path: "/services/outdoor-branding" },
+  { label: "CNC & Laser Branding", path: "/services/cnc-laser-branding" },
 ];
 
 const socialLinks = [
@@ -41,19 +41,19 @@ export default function Footer() {
   return (
     <footer className="bg-[hsl(220,55%,10%)] text-white">
       {/* Top CTA Bar */}
-      <div className="bg-[hsl(25,95%,53%)]">
+      <div className="bg-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
               <p className="text-white font-bold text-lg">
                 Ready to elevate your brand?
               </p>
-              <p className="text-white/90 text-sm">
+              <p className="text-white text-sm">
                 Get in touch today and start your project.
               </p>
             </div>
             <Link to="/contact">
-              <button className="bg-white text-[hsl(25,95%,53%)] font-bold px-6 py-2.5 rounded-lg hover:bg-white/90 transition-colors whitespace-nowrap shadow-md">
+              <button className="bg-white text-accent font-bold px-6 py-2.5 rounded-lg hover:bg-white/90 transition-colors whitespace-nowrap shadow-md">
                 Get a Free Quote
               </button>
             </Link>
@@ -90,7 +90,8 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-[hsl(25,95%,53%)] flex items-center justify-center transition-colors duration-200"
+                  aria-label={`DCC on ${href.includes("tiktok") ? "TikTok" : href.includes("instagram") ? "Instagram" : "WhatsApp"}`}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-[hsl(25,95%,53%)] flex items-center justify-center transition-colors duration-200"
                 >
                   <Icon className="w-4 h-4 text-white" />
                 </a>
@@ -127,13 +128,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               {services.map((s) => (
-                <li key={s}>
+                <li key={s.path}>
                   <Link
-                    to="/services"
-                    className="text-white/60 text-sm hover:text-[hsl(25,95%,53%)] transition-colors flex items-center gap-1.5"
+                    to={s.path}
+                    className="text-white/70 text-sm hover:text-[hsl(25,95%,53%)] transition-colors flex items-center gap-1.5"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[hsl(25,95%,53%)] opacity-60"></span>
-                    {s}
+                    {s.label}
                   </Link>
                 </li>
               ))}
@@ -157,13 +158,13 @@ export default function Footer() {
                   </p>
                   <a
                     href="tel:+254740653661"
-                    className="text-white/80 text-sm hover:text-[hsl(25,95%,53%)] transition-colors block"
+                    className="text-white/80 text-sm hover:text-[hsl(25,95%,53%)] transition-colors block py-0.5"
                   >
                     +254 740 653 661
                   </a>
                   <a
                     href="tel:+254795592478"
-                    className="text-white/80 text-sm hover:text-[hsl(25,95%,53%)] transition-colors block"
+                    className="text-white/80 text-sm hover:text-[hsl(25,95%,53%)] transition-colors block py-0.5"
                   >
                     +254 795 592 478
                   </a>
@@ -194,7 +195,7 @@ export default function Footer() {
                     Location
                   </p>
                   <p className="text-white/80 text-sm">
-                    Gaborone Lane, Nairobi
+                    Nairobi Textiles, Luthuli Avenue, Nairobi
                   </p>
                 </div>
               </li>
@@ -207,7 +208,7 @@ export default function Footer() {
                     Website
                   </p>
                   <a
-                    href="https://www.depotcovers.com"
+                    href="https://www.depotcovers.co.ke"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white/80 text-sm hover:text-[hsl(25,95%,53%)] transition-colors"
@@ -225,17 +226,21 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-white/40 text-sm text-center sm:text-left">
+            <p className="text-white/70 text-sm text-center sm:text-left">
               © {new Date().getFullYear()} Depot Covers Company (DCC). All
               rights reserved.
             </p>
-            <p className="text-white/40 text-sm">
-              Website Designed and built by{" "}
+            <p className="text-white/70 text-sm">
+              <Link to="/privacy" className="hover:text-white underline underline-offset-2">
+                Privacy Policy
+              </Link>
+              {" · "}
+              Website designed and built by{" "}
               <a
                 href="https://www.leadforgestudio.co.ke/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[hsl(25,95%,53%)] hover:text-white transition-colors"
+                className="text-[hsl(25,95%,53%)] hover:text-white transition-colors underline underline-offset-2"
               >
                 Leadforge Studio Kenya
               </a>
@@ -248,7 +253,8 @@ export default function Footer() {
       <div className="fixed bottom-5 right-5 z-50">
         <a
           href="#top"
-          className="w-10 h-10 rounded-full bg-[hsl(25,95%,53%)] flex items-center justify-center shadow-lg hover:bg-[hsl(25,95%,60%)] transition-colors duration-200"
+          aria-label="Back to top"
+          className="w-11 h-11 rounded-full bg-[hsl(25,95%,43%)] flex items-center justify-center shadow-lg hover:bg-[hsl(25,95%,36%)] transition-colors duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

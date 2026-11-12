@@ -1,18 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-
-import { Button } from "@/components/ui/button";
-
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, ChevronUp, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const AUTO_PLAY_DELAY = 10000;
 
-// Images from public/
-const slide1 = "/project/home-page-slider/slide1.jpeg";
-const slide2 = "/project/home-page-slider/slide2.jpeg";
-const slide3 = "/project/home-page-slider/slide3.jpeg";
-const slide4 = "/project/home-page-slider/slide4.jpeg";
-const slide5 = "/project/home-page-slider/slide5.jpeg";
-const slide6 = "/project/home-page-slider/slide6.jpeg";
+const base = "/project/home-page-slider";
 
 const slides = [
   {
@@ -22,7 +15,10 @@ const slides = [
     highlight: "We bring brands to life.",
     description:
       "Premium branding, signage, large format printing, vehicle branding, and corporate identity solutions that help businesses stand out.",
-    image: slide1,
+    image: `${base}/slide1.webp`,
+    imageMd: `${base}/slide1-1024.webp`,
+    imageSm: `${base}/slide1-640.webp`,
+    alt: "Branding and printing project by Depot Covers Company in Nairobi, Kenya",
   },
   {
     id: 2,
@@ -31,7 +27,10 @@ const slides = [
     highlight: "Into A Moving Billboard.",
     description:
       "Professional fleet branding and vehicle wraps that advertise your business everywhere you go.",
-    image: slide2,
+    image: `${base}/slide2.webp`,
+    imageMd: `${base}/slide2-1024.webp`,
+    imageSm: `${base}/slide2-640.webp`,
+    alt: "Vehicle branding and fleet wrap by Depot Covers Company Kenya",
   },
   {
     id: 3,
@@ -40,90 +39,83 @@ const slides = [
     highlight: "Get Noticed.",
     description:
       "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
-    image: slide3,
+    image: `${base}/slide3.webp`,
+    imageMd: `${base}/slide3-1024.webp`,
+    imageSm: `${base}/slide3-640.webp`,
+    alt: "Large format printing and billboard production by DCC Nairobi",
   },
   {
     id: 4,
-    badge: "Large Format Printing",
-    title: "Print Bigger.",
-    highlight: "Get Noticed.",
+    badge: "Signage & Branding",
+    title: "Signage That Works.",
+    highlight: "Day And Night.",
     description:
-      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
-    image: slide4,
+      "Lightboxes, 3D lettering, LED signs and directional signage designed, fabricated and installed by our Nairobi team.",
+    image: `${base}/slide4.webp`,
+    imageMd: `${base}/slide4-1024.webp`,
+    imageSm: `${base}/slide4-640.webp`,
+    alt: "Illuminated 3D signage installed by Depot Covers Company",
   },
   {
     id: 5,
-    badge: "Large Format Printing",
-    title: "Print Bigger.",
-    highlight: "Get Noticed.",
+    badge: "Corporate Branding",
+    title: "Look Professional.",
+    highlight: "Everywhere You Show Up.",
     description:
-      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
-    image: slide5,
+      "Corporate stationery, branded uniforms, promotional items and office branding that keep your identity consistent.",
+    image: `${base}/slide5.webp`,
+    imageMd: `${base}/slide5-1024.webp`,
+    imageSm: `${base}/slide5-640.webp`,
+    alt: "Corporate branding, stationery and uniforms by DCC Kenya",
   },
   {
     id: 6,
-    badge: "Large Format Printing",
-    title: "Print Bigger.",
-    highlight: "Get Noticed.",
+    badge: "Exhibition & Events",
+    title: "Stand Out.",
+    highlight: "At Every Event.",
     description:
-      "High-quality banners, billboards, exhibition displays and signage produced with vibrant colour and precision.",
-    image: slide6,
+      "Exhibition stands, pop-up displays, roll-up banners and event branding delivered on time and ready to install.",
+    image: `${base}/slide6.webp`,
+    imageMd: `${base}/slide6-1024.webp`,
+    imageSm: `${base}/slide6-640.webp`,
+    alt: "Exhibition stand and event branding by Depot Covers Company",
   },
 ];
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // ----------------------------------------
-  // Navigation
-  // ----------------------------------------
+  const nextIndex = useMemo(
+    () => (currentSlide === slides.length - 1 ? 0 : currentSlide + 1),
+    [currentSlide],
+  );
 
-  const nextSlide = () => {
+  const nextSlide = () =>
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
 
-  const previousSlide = () => {
+  const previousSlide = () =>
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  // ----------------------------------------
-  // Auto Play
-  // ----------------------------------------
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, AUTO_PLAY_DELAY);
-
+    const interval = setInterval(nextSlide, AUTO_PLAY_DELAY);
     return () => clearInterval(interval);
   }, []);
 
-  // ----------------------------------------
-  // Touch / Swipe
-  // ----------------------------------------
-
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
     touchEndX.current = e.targetTouches[0].clientX;
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.targetTouches[0].clientX;
   };
 
   const handleTouchEnd = () => {
     const distance = touchStartX.current - touchEndX.current;
-
-    if (distance > 60) {
-      nextSlide();
-    }
-
-    if (distance < -60) {
-      previousSlide();
-    }
+    if (distance > 60) nextSlide();
+    if (distance < -60) previousSlide();
   };
 
   return (
@@ -131,14 +123,12 @@ export default function HeroSection() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="relative mt-4 mb-4 h-[500px] overflow-hidden bg-black sm:h-[560px] md:h-[650px] lg:h-[700px]"
+      className="relative mt-4 mb-4 h-[560px] overflow-hidden bg-[#0b1220] sm:h-[600px] md:h-[650px] lg:h-[700px]"
+      aria-label="Featured Depot Covers projects"
     >
-      {/* =====================================================
-      SLIDES
-  ====================================================== */}
-
       {slides.map((slide, index) => {
         const isActive = currentSlide === index;
+        const shouldRenderImage = isActive || index === nextIndex;
 
         return (
           <div
@@ -148,67 +138,85 @@ export default function HeroSection() {
                 ? "z-20 opacity-100"
                 : "pointer-events-none z-10 opacity-0"
             }`}
+            aria-hidden={!isActive}
+            {...(!isActive ? ({ inert: "" } as Record<string, string>) : {})}
           >
-            {/* =================================================
-            FULL-BLEED BACKGROUND
-            Uses the same image to eliminate empty areas
-        ================================================== */}
+            {/* Background fill (no duplicate image download) */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#12233f] via-[#0b1220] to-black" />
 
-            <div className="absolute inset-0 overflow-hidden">
-              <div
-                className={`absolute inset-0 scale-125 bg-cover bg-center blur-3xl transition-transform duration-[12000ms] ease-linear ${
-                  isActive ? "scale-[1.25]" : "scale-[1.1]"
-                }`}
-                style={{
-                  backgroundImage: `url("${slide.image}")`,
-                }}
-              />
-
-              {/* Dark overlay for depth */}
-              <div className="absolute inset-0 bg-black/40" />
-
-              {/* Slight vignette */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(0,0,0,0.35)_100%)]" />
-
-              {/* Bottom gradient for navigation readability */}
-              <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            </div>
-
-            {/* =================================================
-            MAIN IMAGE
-
-            object-contain means:
-            - NO CROPPING
-            - Entire image remains visible
-            - Scales as large as possible
-        ================================================== */}
-
+            {/* Main image */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                draggable={false}
-                className={`relative z-10 block h-full w-full object-contain object-center transition-transform duration-[12000ms] ease-linear ${
-                  isActive ? "scale-[1.015]" : "scale-100"
-                }`}
-              />
+              {shouldRenderImage && (
+                <img
+                  src={slide.image}
+                  srcSet={`${slide.imageSm} 640w, ${slide.imageMd} 1024w, ${slide.image} 1600w`}
+                  sizes="100vw"
+                  alt={slide.alt}
+                  width={1600}
+                  height={900}
+                  draggable={false}
+                  loading={isActive ? "eager" : "lazy"}
+                  fetchPriority={isActive ? "high" : "low"}
+                  decoding="async"
+                  className={`relative z-10 block h-full w-full object-contain object-center transition-transform duration-[12000ms] ease-linear ${
+                    isActive ? "scale-[1.015]" : "scale-100"
+                  }`}
+                />
+              )}
             </div>
 
-            {/* =================================================
-            SUBTLE IMAGE SHADOW
+            {/* Readability overlay */}
+            <div className="absolute inset-0 z-20 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 z-20 h-48 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-            Makes the actual image separate naturally
-            from the blurred background.
-        ================================================== */}
+            {/* Copy */}
+            <div className="absolute inset-0 z-30 flex items-center">
+              <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
+                <div className="max-w-2xl">
+                  <span className="inline-block rounded-full border border-orange-400/40 bg-orange-500/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-orange-300">
+                    {slide.badge}
+                  </span>
 
-            <div className="pointer-events-none absolute inset-0 z-20">
-              <div className="absolute inset-0 bg-transparent" />
+                  {index === 0 ? (
+                    <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+                      {slide.title}
+                      <span className="block text-orange-400">
+                        {slide.highlight}
+                      </span>
+                    </h1>
+                  ) : (
+                    <h2 className="mt-5 text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
+                      {slide.title}
+                      <span className="block text-orange-400">
+                        {slide.highlight}
+                      </span>
+                    </h2>
+                  )}
+
+                  <p className="mt-5 max-w-xl text-base leading-7 text-white/80 sm:text-lg">
+                    {slide.description}
+                  </p>
+
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-700 px-7 py-3.5 font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-orange-800"
+                    >
+                      Get a free quote
+                      <ArrowRight className="h-5 w-5" />
+                    </Link>
+                    <Link
+                      to="/services"
+                      className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-7 py-3.5 font-semibold text-white transition hover:bg-white/10"
+                    >
+                      Explore our services
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* =================================================
-            TOP PROGRESS BAR
-        ================================================== */}
-
+            {/* Progress bar */}
             <div className="absolute left-0 right-0 top-0 z-50 h-[3px] bg-white/20">
               {isActive && (
                 <div
@@ -224,34 +232,22 @@ export default function HeroSection() {
         );
       })}
 
-      {/* =====================================================
-      BOTTOM NAVIGATION
-  ====================================================== */}
-
+      {/* Bottom navigation */}
       <div className="pointer-events-none absolute bottom-7 left-0 z-[60] w-full px-6 md:bottom-9 md:px-12">
         <div className="mx-auto flex max-w-7xl items-end justify-between">
-          {/* Counter + indicators */}
-
           <div className="pointer-events-auto flex items-center gap-5 sm:gap-8">
-            {/* Counter */}
-
             <div
               className="text-lg font-light tracking-[0.2em] text-white sm:text-2xl"
-              style={{
-                textShadow: "0 2px 12px rgba(0,0,0,.9)",
-              }}
+              style={{ textShadow: "0 2px 12px rgba(0,0,0,.9)" }}
             >
               <span className="font-bold">
                 {String(currentSlide + 1).padStart(2, "0")}
               </span>
-
-              <span className="text-white/50">
+              <span className="text-white/60">
                 {" "}
                 / {String(slides.length).padStart(2, "0")}
               </span>
             </div>
-
-            {/* Indicators */}
 
             <div className="flex items-center gap-2.5">
               {slides.map((_, index) => (
@@ -259,28 +255,24 @@ export default function HeroSection() {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   aria-label={`Go to slide ${index + 1}`}
-                  className={`h-1.5 overflow-hidden rounded-full transition-all duration-500 ${
+                  aria-current={currentSlide === index}
+                  className={`h-2.5 overflow-hidden rounded-full transition-all duration-500 ${
                     currentSlide === index
                       ? "w-12 bg-orange-500 shadow-[0_0_18px_rgba(249,115,22,.6)] sm:w-14"
-                      : "w-5 bg-white/40 hover:w-8 hover:bg-white/70"
+                      : "w-5 bg-white/50 hover:w-8 hover:bg-white/80"
                   }`}
                 />
               ))}
             </div>
           </div>
 
-          {/* Scroll indicator */}
-
           <div className="pointer-events-auto hidden flex-col items-center gap-3 md:flex">
             <span
               className="rotate-90 text-[10px] uppercase tracking-[0.35em] text-white/80"
-              style={{
-                textShadow: "0 2px 10px rgba(0,0,0,.8)",
-              }}
+              style={{ textShadow: "0 2px 10px rgba(0,0,0,.8)" }}
             >
               Scroll
             </span>
-
             <div className="mt-8 flex h-14 w-7 justify-center rounded-full border border-white/30 bg-black/10 backdrop-blur-md">
               <div className="mt-2 h-3 w-1 animate-bounce rounded-full bg-orange-500" />
             </div>
@@ -288,17 +280,14 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* =====================================================
-      FLOATING NAVIGATION
-  ====================================================== */}
-
+      {/* Slide controls */}
       <div className="absolute right-4 top-1/2 z-[60] flex -translate-y-1/2 flex-col gap-3 sm:right-6 md:right-8 md:gap-4 lg:right-10">
         <Button
           size="icon"
           variant="outline"
           onClick={previousSlide}
           aria-label="Previous slide"
-          className="h-10 w-10 rounded-full border-white/20 bg-black/20 text-white shadow-lg backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-black/40 sm:h-11 sm:w-11 md:h-12 md:w-12"
+          className="h-11 w-11 rounded-full border-white/20 bg-black/30 text-white shadow-lg backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-black/50 md:h-12 md:w-12"
         >
           <ChevronUp className="h-4 w-4 md:h-5 md:w-5" />
         </Button>
@@ -308,37 +297,18 @@ export default function HeroSection() {
           variant="outline"
           onClick={nextSlide}
           aria-label="Next slide"
-          className="h-10 w-10 rounded-full border-white/20 bg-black/20 text-white shadow-lg backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-black/40 sm:h-11 sm:w-11 md:h-12 md:w-12"
+          className="h-11 w-11 rounded-full border-white/20 bg-black/30 text-white shadow-lg backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-black/50 md:h-12 md:w-12"
         >
           <ChevronDown className="h-4 w-4 md:h-5 md:w-5" />
         </Button>
       </div>
 
-      {/* =====================================================
-      IMAGE PRELOADER
-  ====================================================== */}
-
-      <div className="hidden" aria-hidden="true">
-        {slides.map((slide) => (
-          <img key={`preload-${slide.id}`} src={slide.image} alt="" />
-        ))}
-      </div>
-
-      {/* =====================================================
-      PROGRESS ANIMATION
-  ====================================================== */}
-
       <style>{`
-    @keyframes slideProgress {
-      from {
-        width: 0%;
-      }
-
-      to {
-        width: 100%;
-      }
-    }
-  `}</style>
+        @keyframes slideProgress {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      `}</style>
     </section>
   );
 }

@@ -1,25 +1,23 @@
-import { Phone, Mail, Link } from "lucide-react";
-import { useLocation } from "react-router";
+import { Phone, Mail } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function TopBar() {
-  const location = useLocation();
-
-  const navigate = () => {
-    if (location.pathname !== "/contact") {
-      window.location.href = "/contact";
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <header className="w-full border-b bg-white">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
         {/* Left */}
-        <div className="flex justify-center lg:justify-start shrink-0">
-          <img
-            src="/logof.jpeg"
-            alt="DCC Logo"
-            className="h-28 w-auto object-contain transition-transform hover:scale-105"
-          />
+        <div className="flex shrink-0 justify-center lg:justify-start">
+          <Link to="/" aria-label="Depot Covers Company home">
+            <img
+              src="/logof.webp"
+              alt="Depot Covers Company (DCC) logo"
+              width={400}
+              height={217}
+              className="h-16 w-auto object-contain transition-transform hover:scale-105 sm:h-20 lg:h-24"
+            />
+          </Link>
         </div>
 
         {/* Right */}
@@ -32,12 +30,12 @@ export default function TopBar() {
 
             <div>
               <a
-                className="font-semibold text-gray-900 cursor-pointer hover:text-[hsl(25,95%,53%)] transition-colors"
+                className="font-semibold text-gray-900 transition-colors hover:text-[hsl(25,95%,43%)]"
                 href="tel:+254740653661"
               >
-                +254 795 592 478
+                +254 740 653 661
               </a>
-              <p className="text-sm text-gray-500">Any questions? Call us.</p>
+              <p className="text-sm text-gray-600">Any questions? Call us.</p>
             </div>
           </div>
 
@@ -50,18 +48,18 @@ export default function TopBar() {
             <div>
               <a
                 href="mailto:depotcovers001@gmail.com"
-                className="cursor-pointer font-semibold uppercase text-blue-700 hover:text-[hsl(25,95%,53%)] transition-colors"
+                className="cursor-pointer font-semibold uppercase text-blue-700 transition-colors hover:text-[hsl(25,95%,43%)]"
               >
                 Send Us Email
               </a>
-              <p className="text-sm text-gray-500">Sales Inquiry</p>
+              <p className="text-sm text-gray-600">Sales Inquiry</p>
             </div>
           </div>
 
           {/* CTA */}
           <button
-            onClick={navigate}
-            className="h-12 whitespace-nowrap rounded-full bg-[hsl(25,95%,53%)] hover:bg-[hsl(25,95%,45%)] px-8 font-semibold text-white transition "
+            onClick={() => navigate("/contact")}
+            className="h-12 whitespace-nowrap rounded-full bg-accent px-8 font-semibold text-white transition hover:bg-accent/90"
           >
             GET A FREE QUOTE
           </button>

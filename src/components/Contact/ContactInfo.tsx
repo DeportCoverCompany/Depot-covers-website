@@ -16,26 +16,34 @@ const contactDetails = [
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+254 740 653 661", "+254 795 592 478"],
-    href: "tel:+254740653661",
+    details: [
+      { label: "+254 740 653 661", href: "tel:+254740653661" },
+      { label: "+254 795 592 478", href: "tel:+254795592478" },
+    ],
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["depotcovers001@gmail.com"],
-    href: "mailto:depotcovers001@gmail.com",
+    details: [
+      { label: "depotcovers001@gmail.com", href: "mailto:depotcovers001@gmail.com" },
+    ],
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["Nairobi Textiles, Luthuli Ave, Nairobi"],
-    href: "https://maps.google.com/?q=Luthuli+Avenue+Nairobi",
+    details: [
+      {
+        label: "Nairobi Textiles, Luthuli Ave, Nairobi",
+        href: "https://maps.google.com/?q=-1.2837641,36.8270377",
+      },
+    ],
+    external: true,
   },
   {
     icon: Globe,
     title: "Website",
-    details: ["www.depotcovers.co.ke"],
-    href: "https://www.depotcovers.co.ke",
+    details: [{ label: "www.depotcovers.co.ke", href: "https://www.depotcovers.co.ke" }],
+    external: true,
   },
 ];
 
@@ -81,16 +89,12 @@ export default function ContactInfo() {
                 {item.details.map((detail, dIdx) => (
                   <a
                     key={dIdx}
-                    href={item.href}
-                    target={
-                      item.title === "Visit Us" || item.title === "Website"
-                        ? "_blank"
-                        : undefined
-                    }
-                    rel="noopener noreferrer"
-                    className="block text-foreground font-medium hover:text-accent transition-colors"
+                    href={detail.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
+                    className="block py-0.5 text-foreground font-medium hover:text-accent transition-colors"
                   >
-                    {detail}
+                    {detail.label}
                   </a>
                 ))}
               </div>

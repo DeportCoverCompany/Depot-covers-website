@@ -20,7 +20,7 @@ export default function StatsBar() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 items-center">
           {stats.map((stat, i) => (
             <div key={i} className="text-center group">
-              <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-accent mb-2 transition-transform group-hover:scale-110 duration-300">
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-black text-orange-300 mb-2 transition-transform group-hover:scale-110 duration-300">
                 {stat.value}
               </p>
               <p className="text-white/60 text-xs sm:text-sm font-bold uppercase tracking-widest">

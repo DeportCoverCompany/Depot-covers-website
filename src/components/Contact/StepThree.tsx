@@ -149,9 +149,9 @@ Examples:
                   <div className="flex flex-col items-center justify-center text-center">
                     <Upload className="w-10 h-10 text-accent mb-4" />
 
-                    <h4 className="font-semibold text-primary">
+                    <h3 className="font-semibold text-primary">
                       Click to upload
-                    </h4>
+                    </h3>
 
                     <p className="text-sm text-muted-foreground mt-2">
                       PDF, AI, EPS, PNG, JPG or SVG
@@ -187,7 +187,7 @@ Examples:
           <ShieldCheck className="w-8 h-8 text-accent shrink-0" />
 
           <div>
-            <h4 className="font-semibold text-primary">You're almost done</h4>
+            <h3 className="font-semibold text-primary">You're almost done</h3>
 
             <p className="mt-2 text-sm leading-7 text-muted-foreground">
               Once you submit your request, one of our branding specialists will

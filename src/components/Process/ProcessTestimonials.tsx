@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const testimonials = [
   {
@@ -46,7 +46,6 @@ export default function ProcessTestimonials() {
               
               <div className="flex items-center gap-4">
                 <Avatar className="h-12 w-12 border border-border">
-                  <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${t.avatar}`} />
                   <AvatarFallback>{t.name[0]}</AvatarFallback>
                 </Avatar>
                 <div>

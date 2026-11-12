@@ -13,14 +13,14 @@ export default function AboutHero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-left space-y-6">
             <nav className="flex items-center gap-2 text-white/60 text-sm mb-4">
-              <Link to="/" className="hover:text-accent transition-colors">
+              <Link to="/" className="hover:text-orange-300 transition-colors">
                 Home
               </Link>
               <ChevronRight className="w-4 h-4" />
               <span className="text-white">About</span>
             </nav>
 
-            <div className="inline-block px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-block px-4 py-1.5 rounded-full bg-orange-400/10 border border-orange-400/20 text-orange-200 text-xs font-bold uppercase tracking-wider mb-2">
               About DCC
             </div>
 
@@ -50,8 +50,12 @@ export default function AboutHero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3] lg:aspect-square">
               <img
                 className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                src="/team.jpeg"
-                alt="professional branding printing company office team Kenya Nairobi"
+                src="/team.webp"
+                alt="The Depot Covers Company branding and printing team in Nairobi, Kenya"
+                width={1200}
+                height={900}
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           </div>

@@ -7,20 +7,18 @@ import ProcessTimeline from "@/components/Process/ProcessTimeline";
 import ProcessFaq from "@/components/Process/ProcessFaq";
 import ProcessTestimonials from "@/components/Process/ProcessTestimonials";
 import ProcessCta from "@/components/Process/ProcessCta";
-import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
+import { PROCESS_FAQS, faqPageSchema } from "@/data/faqs";
 
 const Process = () => {
   return (
     <>
-      <Helmet>
-        <title>
-          Depot Covers Company (DCC) — Branding & Printing Solutions Kenya
-        </title>
-        <meta
-          name="description"
-          content="Depot Covers Company (DCC) — Branding & Printing Solutions Kenya"
-        />
-      </Helmet>
+      <SEO
+        title="Our Branding & Printing Process | DCC"
+        description="From brief and design to production and installation — see how DCC delivers branding and printing projects on time and on budget in Kenya."
+        path="/process"
+        jsonLd={faqPageSchema(PROCESS_FAQS)}
+      />
       <div className="flex flex-col min-h-screen">
         <Navbar />
 

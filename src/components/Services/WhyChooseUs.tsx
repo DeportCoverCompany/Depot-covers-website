@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import LazyVideo from "@/components/LazyVideo";
 
 const reasons = [
   "High-quality finishing",
@@ -37,13 +38,11 @@ export default function WhyChooseUs() {
           <div className="relative">
             <div className="absolute -inset-4 bg-accent/10 rounded-3xl blur-2xl transform rotate-2"></div>
             <div className="relative bg-white p-2 rounded-3xl shadow-xl overflow-hidden border border-border">
-              <video
-                className="w-full aspect-[4/3] object-cover rounded-2xl shadow-inner"
+              <LazyVideo
                 src="/project/videos/video1.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
+                poster="/project/videos/video1-poster.webp"
+                className="w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-inner"
+                label="Depot Covers Company production and branding work"
               />
             </div>
           </div>

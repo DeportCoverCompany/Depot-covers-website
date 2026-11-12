@@ -24,7 +24,7 @@ export default function CtaBanner() {
           <h2 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white mb-6 leading-tight">
             Empowering Your Brand, Driving Your Success
           </h2>
-          <p className="text-white/90 text-lg sm:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white text-lg sm:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
             Ready to take your business to the next level? Let's create something amazing together. Our team is ready to bring your vision to life.
           </p>
 

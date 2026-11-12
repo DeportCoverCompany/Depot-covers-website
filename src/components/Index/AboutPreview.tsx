@@ -13,8 +13,12 @@ export default function AboutPreview() {
             <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
               <img
                 className="w-full aspect-[4/5] object-cover"
-                src="/project/descImage.jpeg"
-                alt="Professional branding team in Kenya discussing a graphic design project in a modern studio"
+                src="/project/descImage.webp"
+                alt="Branding team in Kenya discussing a graphic design project in a modern studio"
+                width={1200}
+                height={1500}
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>
@@ -22,7 +26,7 @@ export default function AboutPreview() {
             {/* Overlay Experience Card */}
             <div className="absolute -bottom-6 -right-6 bg-accent p-8 rounded-2xl shadow-xl hidden sm:block">
               <p className="text-5xl font-black text-white mb-1">5+</p>
-              <p className="text-white/90 text-sm font-bold uppercase tracking-wider leading-tight">
+              <p className="text-white text-sm font-bold uppercase tracking-wider leading-tight">
                 Years of
                 <br />
                 Excellence

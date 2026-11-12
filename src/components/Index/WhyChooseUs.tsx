@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import LazyVideo from "@/components/LazyVideo";
 
 export default function WhyChooseUs() {
   const reasons = [
@@ -43,15 +44,11 @@ export default function WhyChooseUs() {
             {/* Main media frame */}
             <div className="relative rounded-3xl overflow-hidden border-8 border-white/10 bg-white shadow-2xl">
               <div className="relative aspect-video overflow-hidden">
-                <video
-                  className="w-full h-full object-cover"
-                  src="project/videos/dccvideo.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label="DCCKenya branding and printing services"
+                <LazyVideo
+                  src="/project/videos/dccvideo.mp4"
+                  poster="/project/videos/dccvideo-poster.webp"
+                  className="w-full h-full"
+                  label="DCC Kenya branding and printing services"
                 />
 
                 {/* Subtle cinematic overlay */}
@@ -83,7 +80,7 @@ export default function WhyChooseUs() {
           <div>
             <div className="inline-flex items-center gap-2 mb-4">
               <div className="h-0.5 w-8 bg-accent"></div>
-              <span className="text-accent font-bold uppercase tracking-[0.2em] text-xs">
+              <span className="text-orange-400 font-bold uppercase tracking-[0.2em] text-xs">
                 Why DCC
               </span>
             </div>
@@ -99,7 +96,7 @@ export default function WhyChooseUs() {
                 <div key={i} className="flex gap-4 group">
                   <div className="flex-shrink-0">
                     <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
-                      <CheckCircle2 className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+                      <CheckCircle2 className="w-6 h-6 text-orange-400 group-hover:text-white transition-colors" />
                     </div>
                   </div>
                   <div>

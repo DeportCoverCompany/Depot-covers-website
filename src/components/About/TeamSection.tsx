@@ -28,7 +28,7 @@ export default function TeamSection() {
     <section className="bg-muted/30 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block px-3 py-1 rounded bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-block px-3 py-1 rounded bg-accent/10 text-accent-strong text-xs font-bold uppercase tracking-wider mb-4">
             Our Team
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-6">
@@ -46,17 +46,15 @@ export default function TeamSection() {
               key={idx}
               className="group bg-white rounded-2xl p-6 shadow-sm border border-border hover:-translate-y-2 transition-all duration-300 hover:shadow-xl"
             >
-              <div className="relative mb-6 mx-auto w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden bg-muted">
-                <img
-                  src={member.avatar}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative mb-6 mx-auto flex w-24 h-24 md:w-32 md:h-32 items-center justify-center rounded-2xl overflow-hidden bg-primary/10">
+                <span className="text-3xl font-black text-primary">
+                  {member.name.charAt(0)}
+                </span>
               </div>
               <div className="text-center">
-                <h4 className="text-lg font-bold text-primary mb-1">
+                <h3 className="text-lg font-bold text-primary mb-1">
                   {member.name}
-                </h4>
+                </h3>
                 <p className="text-accent text-xs font-semibold uppercase tracking-wider mb-4">
                   {member.role}
                 </p>

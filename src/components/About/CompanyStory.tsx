@@ -18,7 +18,7 @@ export default function CompanyStory() {
         {/* Section Header */}
 
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <span className="inline-flex px-4 py-2 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-widest">
+          <span className="inline-flex px-4 py-2 rounded-full bg-accent/10 text-accent-strong text-xs font-bold uppercase tracking-widest">
             About DCC
           </span>
 
@@ -65,9 +65,13 @@ export default function CompanyStory() {
 
           <div className="relative">
             <img
-              src="/wind1.jpeg"
+              src="/wind1.webp"
               className="rounded-3xl shadow-2xl object-cover h-[520px] w-full"
-              alt=""
+              alt="Large format outdoor branding and signage by Depot Covers Company Nairobi"
+              width={1200}
+              height={1200}
+              loading="lazy"
+              decoding="async"
             />
 
             <div className="absolute bottom-6 left-6 bg-accent rounded-2xl shadow-lg px-6 py-4">
@@ -87,9 +91,13 @@ export default function CompanyStory() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative order-2 lg:order-1">
             <img
-              src="/wind2.jpeg"
+              src="/wind2.webp"
               className="rounded-3xl shadow-2xl object-cover h-[520px] w-full"
-              alt=""
+              alt="Professional signage installation by Depot Covers Company in Nairobi"
+              width={1200}
+              height={1200}
+              loading="lazy"
+              decoding="async"
             />
 
             <div className="absolute bottom-6 right-6  bg-accent  rounded-2xl shadow-lg px-6 py-4">

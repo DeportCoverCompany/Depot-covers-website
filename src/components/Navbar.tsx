@@ -7,7 +7,7 @@ import { Menu, X, Printer } from "lucide-react";
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "Services", path: "/services" },
-  { label: "Marketing", path: "/marketing" },
+  { label: "Portfolio", path: "/portfolio" },
   { label: "About", path: "/about" },
   { label: "Process", path: "/process" },
   { label: "Contact", path: "/contact" },
@@ -27,8 +27,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           {/* Logo */}
-          <div className="flex items-center gap-2.5 group">
-            <div className="flex items-center gap-2 group"></div>
+          <div className="flex items-center gap-2.5">
+            <Link to="/" className="flex items-center gap-2" aria-label="Depot Covers Company home">
+              <img
+                src="/logof.webp"
+                alt="Depot Covers Company (DCC)"
+                width={160}
+                height={87}
+                className="h-10 w-auto object-contain lg:h-11"
+              />
+            </Link>
           </div>
 
           {/* Desktop Nav */}
@@ -39,7 +47,7 @@ export default function Navbar() {
                 to={link.path}
                 className={`px-3.5 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
                   isActive(link.path)
-                    ? "text-[hsl(25,95%,53%)] bg-white/10"
+                    ? "text-orange-300 bg-white/10"
                     : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
@@ -56,6 +64,7 @@ export default function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
+                  aria-label="Open navigation menu"
                   className="lg:hidden text-white hover:bg-white/10"
                 >
                   <Menu className="w-5 h-5" />
@@ -71,7 +80,7 @@ export default function Navbar() {
                     onClick={() => setOpen(false)}
                     className="flex items-center gap-2"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[hsl(25,95%,53%)] flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
                       <Printer className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-white font-extrabold text-base">
@@ -81,6 +90,7 @@ export default function Navbar() {
                   <Button
                     variant="ghost"
                     size="icon"
+                    aria-label="Close navigation menu"
                     className="text-white hover:bg-white/10"
                     onClick={() => setOpen(false)}
                   >
@@ -95,7 +105,7 @@ export default function Navbar() {
                       onClick={() => setOpen(false)}
                       className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
                         isActive(link.path)
-                          ? "text-[hsl(25,95%,53%)] bg-white/10"
+                          ? "text-orange-300 bg-white/10"
                           : "text-white/80 hover:text-white hover:bg-white/10"
                       }`}
                     >
@@ -104,7 +114,7 @@ export default function Navbar() {
                   ))}
                   <div className="pt-4 border-t border-white/10 mt-2">
                     <Link to="/contact" onClick={() => setOpen(false)}>
-                      <Button className="w-full bg-[hsl(25,95%,53%)] hover:bg-[hsl(25,95%,45%)] text-white font-semibold">
+                      <Button className="w-full bg-accent hover:bg-accent/90 text-white font-semibold">
                         Get a Quote
                       </Button>
                     </Link>

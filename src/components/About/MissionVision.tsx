@@ -12,7 +12,7 @@ export default function MissionVision() {
             </div>
             <div className="relative z-10 space-y-4">
               <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-accent" />
+                <Target className="w-8 h-8 text-orange-300" />
               </div>
               <h3 className="text-3xl font-extrabold">Our Mission</h3>
               <p className="text-white/80 text-lg leading-relaxed max-w-md">
@@ -32,7 +32,7 @@ export default function MissionVision() {
                 <Eye className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-3xl font-extrabold">Our Vision</h3>
-              <p className="text-white/90 text-lg leading-relaxed max-w-md">
+              <p className="text-white text-lg leading-relaxed max-w-md">
                 To be a trusted leader in branding, printing, and visual 
                 communication solutions in Kenya.
               </p>
@@ -52,7 +52,7 @@ export default function MissionVision() {
           </div>
           <div className="relative z-10 py-10 px-8 text-center">
             <p className="text-2xl md:text-4xl font-extrabold text-white italic tracking-tight">
-              "We don't just print — We bring <span className="text-accent underline decoration-accent/30 underline-offset-8">brands to life</span>."
+              "We don't just print — We bring <span className="text-orange-300 underline decoration-orange-300/30 underline-offset-8">brands to life</span>."
             </p>
           </div>
         </div>

@@ -29,7 +29,7 @@ export default function ProgressSteps({ currentStep }: ProgressStepsProps) {
                   className={cn(
                     "w-12 h-12 rounded-full border-2 flex items-center justify-center font-semibold transition-all duration-300",
                     isCompleted && "bg-accent border-accent text-white",
-                    isActive && "border-accent bg-accent/10 text-accent",
+                    isActive && "border-accent bg-accent/10 text-accent-strong",
                     !isCompleted &&
                       !isActive &&
                       "border-border bg-muted text-muted-foreground",
@@ -39,14 +39,14 @@ export default function ProgressSteps({ currentStep }: ProgressStepsProps) {
                 </div>
 
                 <div className="mt-3 text-center">
-                  <h4
+                  <h3
                     className={cn(
                       "text-sm font-semibold",
                       isActive ? "text-primary" : "text-muted-foreground",
                     )}
                   >
                     {step.title}
-                  </h4>
+                  </h3>
 
                   <p className="text-xs text-muted-foreground mt-1 max-w-[120px]">
                     {step.description}

@@ -8,20 +8,16 @@ import WhyChooseUs from "@/components/Index/WhyChooseUs";
 import ProcessPreview from "@/components/Index/ProcessPreview";
 import PortfolioPreview from "@/components/Index/PortfolioPreview";
 import CtaBanner from "@/components/Index/CtaBanner";
-import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
 
 export default function Index() {
   return (
     <>
-      <Helmet>
-        <title>
-          Depot Covers Company (DCC) — Branding & Printing Solutions Kenya
-        </title>
-        <meta
-          name="description"
-          content="Depot Covers Company (DCC) — Branding & Printing Solutions Kenya"
-        />
-      </Helmet>
+      <SEO
+        title="Branding & Printing Company in Nairobi, Kenya | DCC"
+        description="Depot Covers Company (DCC) delivers branding, signage, large-format printing, vehicle wraps, uniforms and promotional items across Kenya. Get a free quote in 24 hours."
+        path="/"
+      />
       <div className="flex min-h-screen flex-col">
         <Navbar />
         <main className="flex-grow">

@@ -151,7 +151,7 @@ export default function StepOne({ form }: StepOneProps) {
       {/* Bottom Info Card */}
 
       <div className="rounded-2xl border bg-muted/40 p-6">
-        <h4 className="font-semibold text-primary mb-2">What happens next?</h4>
+        <h3 className="font-semibold text-primary mb-2">What happens next?</h3>
 
         <div className="space-y-2 text-sm text-muted-foreground">
           <p>✓ Tell us about your branding project.</p>

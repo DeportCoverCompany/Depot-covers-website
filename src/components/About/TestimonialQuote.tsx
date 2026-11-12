@@ -19,13 +19,11 @@ export default function TestimonialQuote() {
           </p>
           <footer className="flex flex-col items-center">
             <div className="w-14 h-14 rounded-full overflow-hidden mb-4 border-2 border-accent p-0.5">
-               <img 
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=James" 
-                alt="James Mwangi"
-                className="w-full h-full object-cover rounded-full bg-muted"
-               />
+               <div className="flex h-full w-full items-center justify-center rounded-full bg-white/10 text-xl font-bold text-white">
+                 J
+               </div>
             </div>
-            <div className="text-accent font-bold text-lg tracking-wide uppercase">
+            <div className="text-orange-300 font-bold text-lg tracking-wide uppercase">
               James Mwangi
             </div>
             <div className="text-white/50 text-sm font-medium">

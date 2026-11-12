@@ -56,7 +56,7 @@ export default function ContactProcess() {
                 <div className="w-20 h-20 rounded-3xl bg-white/10 flex items-center justify-center mb-6 border border-white/20 transition-all duration-300 group-hover:bg-accent group-hover:border-accent group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-accent/20">
                   <step.icon className="w-10 h-10 text-accent group-hover:text-white transition-colors" />
                 </div>
-                <div className="bg-accent/20 text-accent font-black w-8 h-8 rounded-full flex items-center justify-center mb-4 border border-accent/30 text-xs">
+                <div className="bg-accent/20 text-accent-strong font-black w-8 h-8 rounded-full flex items-center justify-center mb-4 border border-accent/30 text-xs">
                   {idx + 1}
                 </div>
                 <h3 className="text-xl font-bold mb-2">{step.title}</h3>

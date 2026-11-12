@@ -6,14 +6,14 @@ import PortfolioGrid from "@/components/Portfolio/PortfolioGrid";
 import FeaturedProject from "@/components/Portfolio/FeaturedProject";
 import ClientLogos from "@/components/Portfolio/ClientLogos";
 import PortfolioCta from "@/components/Portfolio/PortfolioCta";
-import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
 
-const sinageImage = "/project/sinage.jpeg";
-const thermalMugImage = "/project/thermalbrand.jpeg";
-const bagImage = "/project/bags.jpeg";
-const capImage = "/project/cap.jpeg";
-const coporateImage = "/project/marketing/mk1.jpeg";
-const coporateImage2 = "/project/marketing/mk2.jpeg";
+const sinageImage = "/project/sinage.webp";
+const thermalMugImage = "/project/thermalbrand.webp";
+const bagImage = "/project/bags.webp";
+const capImage = "/project/cap.webp";
+const coporateImage = "/project/marketing/mk1.webp";
+const coporateImage2 = "/project/marketing/mk2.webp";
 
 const projects = [
   {
@@ -29,26 +29,22 @@ const projects = [
   {
     title: "Branded Staff Uniforms",
     category: "Apparel Branding",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_476bb5574a_e9cc351d0fcdc7b2.png",
+    img_url: "/project/portfolio/staff-uniforms.webp",
   },
   {
     title: "Exhibition Banner System",
     category: "Signage",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_491969c19f_d42f0185dffbe36c.png",
+    img_url: "/project/portfolio/exhibition-banner.webp",
   },
   {
     title: "Promotional Gift Sets",
     category: "Promotional Items",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_8476589e9d_f97e00f488b27045.png",
+    img_url: "/project/portfolio/promotional-gifts.webp",
   },
   {
     title: "Vehicle Wrap Branding",
     category: "Signage",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_91294e4bdc_3f52dc587c4ec326.png",
+    img_url: "/project/portfolio/vehicle-wrap.webp",
   },
   {
     title: "Business Card Collection",
@@ -68,8 +64,7 @@ const projects = [
   {
     title: "Corporate Stationery Set",
     category: "Printing",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_dd9c9655cf_d05dcf4a9010e2db.png",
+    img_url: "/project/portfolio/stationery-set.webp",
   },
   {
     title: "Corporate Stationery Printing",
@@ -79,8 +74,7 @@ const projects = [
   {
     title: "School Uniform Branding",
     category: "Apparel Branding",
-    img_url:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_5b4b23f3fc_4ad0374552c22aa3.png",
+    img_url: "/project/portfolio/school-uniforms.webp",
   },
 ];
 
@@ -102,15 +96,11 @@ export default function Portfolio() {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Depot Covers Company (DCC) — Branding & Printing Solutions Kenya
-        </title>
-        <meta
-          name="description"
-          content="Depot Covers Company (DCC) — Branding & Printing Solutions Kenya"
-        />
-      </Helmet>
+      <SEO
+        title="Our Branding & Printing Portfolio | DCC Kenya"
+        description="See signage, vehicle branding, uniforms, brochures and exhibition projects delivered by Depot Covers Company across Kenya."
+        path="/portfolio"
+      />
       <div className="flex flex-col min-h-screen bg-background">
         <Navbar />
 

@@ -1,0 +1,445 @@
+export interface ServiceFaq {
+  question: string;
+  answer: string;
+}
+
+export interface Service {
+  slug: string;
+  name: string;
+  category: string;
+  description: string;
+  intro: string;
+  metaTitle: string;
+  metaDescription: string;
+  image: string;
+  gallery: string[];
+  features: string[];
+  outcomes: string[];
+  faq: ServiceFaq[];
+}
+
+const promotionalGallery = [
+  "/project/services/p1.webp",
+  "/project/services/p2.webp",
+  "/project/services/p3.webp",
+  "/project/services/p4.webp",
+  "/project/services/p5.webp",
+  "/project/services/p6.webp",
+  "/project/services/p7.webp",
+  "/project/services/p8.webp",
+  "/project/services/p9.webp",
+  "/project/services/p10.webp",
+  "/project/services/p11.webp",
+  "/project/services/p12.webp",
+  "/project/services/p13.webp",
+  "/project/services/p14.webp",
+  "/project/services/p15.webp",
+  "/project/services/p16.webp",
+  "/project/services/p17.webp",
+  "/project/services/p18.webp",
+  "/project/services/p19.webp",
+  "/project/services/p20.webp",
+  "/project/services/p21.webp",
+  "/project/services/p22.webp",
+  "/project/services/p23.webp",
+  "/project/services/p24.webp",
+  "/project/services/p26.webp",
+];
+
+const garmentGallery = [
+  "/project/services/gaments1.webp",
+  "/project/services/gaments2.webp",
+  "/project/services/gaments3.webp",
+  "/project/services/gaments4.webp",
+  "/project/services/gaments5.webp",
+  "/project/services/gaments6.webp",
+  "/project/services/gaments7.webp",
+  "/project/services/gaments8.webp",
+  "/project/services/gaments9.webp",
+  "/project/services/gaments10.webp",
+];
+
+const eventGallery = [
+  "/project/services/ex1.webp",
+  "/project/services/ex2.webp",
+  "/project/services/ex3.webp",
+  "/project/services/ex4.webp",
+  "/project/services/ex5.webp",
+  "/project/services/ex6.webp",
+];
+
+const officeGallery = [
+  "/project/services/of1.webp",
+  "/project/services/of2.webp",
+  "/project/services/of3.webp",
+  "/project/services/of4.webp",
+];
+
+const corporateGallery = [
+  "/project/services/cop1.webp",
+  "/project/services/cop2.webp",
+  "/project/services/cop3.webp",
+  "/project/services/cop4.webp",
+  "/project/services/cop5.webp",
+  "/project/services/cop6.webp",
+  "/project/services/cop7.webp",
+  "/project/services/cop8.webp",
+  "/project/services/cop9.webp",
+  "/project/services/cop10.webp",
+  "/project/services/cop11.webp",
+  "/project/services/cop12.webp",
+  "/project/services/cop13.webp",
+  "/project/services/cop14.webp",
+];
+
+const outdoorGallery = [
+  "/project/services/outd1.webp",
+  "/project/services/outd2.webp",
+  "/project/services/outd3.webp",
+];
+
+const cncGallery = [
+  "/project/services/c1.webp",
+  "/project/services/c2.webp",
+  "/project/services/c3.webp",
+  "/project/services/c4.webp",
+  "/project/services/c5.webp",
+  "/project/services/c6.webp",
+  "/project/services/c7.webp",
+];
+
+export const services: Service[] = [
+  {
+    slug: "signage-branding",
+    name: "Signage Branding",
+    category: "Signage",
+    description:
+      "Professional signage solutions designed to increase brand visibility and create a lasting impression across indoor and outdoor environments.",
+    intro:
+      "From shopfront signs to 3D lettering and illuminated lightboxes, we design, fabricate and install signage that makes your business easy to find and hard to forget. Our team handles site surveys, artwork, production and installation across Nairobi and beyond.",
+    metaTitle: "Signage Company in Nairobi, Kenya | DCC",
+    metaDescription:
+      "Custom signage in Nairobi: lightbox signs, 3D letters, LED signs, directional and safety signs designed, fabricated and installed by Depot Covers Company.",
+    image: "/project/services/sinage.webp",
+    gallery: ["/project/services/sinage.webp"],
+    features: [
+      "Lightbox Signs",
+      "3D Letter Signs",
+      "LED Signs",
+      "Directional Signs",
+      "Safety Signs",
+      "Reflective Signs",
+    ],
+    outcomes: [
+      "Site survey and signage audit",
+      "Design and artwork proofs",
+      "In-house fabrication",
+      "Professional installation",
+    ],
+    faq: [
+      {
+        question: "Do you install signage outside Nairobi?",
+        answer:
+          "Yes. We install signage across Kenya and can arrange delivery and installation for clients outside Nairobi.",
+      },
+      {
+        question: "How long does a sign take to produce?",
+        answer:
+          "Most signage projects take 5–15 working days from artwork approval, depending on size, materials and illumination.",
+      },
+    ],
+  },
+  {
+    slug: "promotional-branding",
+    name: "Promotional Branding",
+    category: "Promotional",
+    description:
+      "Custom branded merchandise that strengthens brand recognition and keeps your business visible through everyday promotional products.",
+    intro:
+      "Branded merchandise people actually keep. We source and brand pens, mugs, diaries, caps, tote bags, keyholders and more — ideal for launches, conferences, staff gifting and customer appreciation.",
+    metaTitle: "Branded Promotional Items in Kenya | DCC",
+    metaDescription:
+      "Custom branded merchandise in Kenya: pens, mugs, diaries, caps, tote bags, keyholders and corporate gift sets branded by Depot Covers Company.",
+    image: "/project/services/promotional.webp",
+    gallery: promotionalGallery,
+    features: [
+      "Pens & Keyholders",
+      "Overalls",
+      "Mugs & Flasks",
+      "Caps & Tote Bags",
+      "Diaries & Notebooks",
+      "Name Badges",
+      "Rubber Stamps",
+    ],
+    outcomes: [
+      "Product sourcing and samples",
+      "Brand application and proofing",
+      "Bulk production",
+      "Packaging and delivery",
+    ],
+    faq: [
+      {
+        question: "What is the minimum order quantity?",
+        answer:
+          "Minimum quantities depend on the product. Share your requirements and we will confirm the best option and pricing for your budget.",
+      },
+      {
+        question: "Can you brand items we already own?",
+        answer:
+          "In many cases yes. Send us photos and quantities and we will advise whether embroidery, screen printing or another method is suitable.",
+      },
+    ],
+  },
+  {
+    slug: "corporate-stationery-printing",
+    name: "Corporate Stationery Printing",
+    category: "Printing",
+    description:
+      "High-quality business stationery that reinforces your corporate identity and ensures consistency across all communications.",
+    intro:
+      "Business cards, letterheads, envelopes, invoice books and brochures printed with consistent colour and premium finishing. We help you build a stationery system that looks professional at every touchpoint.",
+    metaTitle: "Corporate Stationery Printing in Nairobi | DCC",
+    metaDescription:
+      "Business cards, letterheads, envelopes, invoice books, brochures and calendars printed in Nairobi by Depot Covers Company.",
+    image: "/project/services/coprate.webp",
+    gallery: corporateGallery,
+    features: [
+      "Letterheads",
+      "Business Cards",
+      "Envelopes",
+      "Invoice Books",
+      "Receipt Books",
+      "Brochures",
+      "Calendars",
+      "Labels & Stickers",
+    ],
+    outcomes: [
+      "Artwork setup and brand checks",
+      "Paper and finish selection",
+      "Proof approval",
+      "Print and delivery",
+    ],
+    faq: [
+      {
+        question: "Can you print from my existing artwork?",
+        answer:
+          "Yes. We can print from print-ready files, or our design team can prepare or correct artwork for you.",
+      },
+      {
+        question: "Do you offer bulk pricing?",
+        answer:
+          "Yes. Stationery and print pricing improves with volume. Tell us your expected quantities for a tailored quote.",
+      },
+    ],
+  },
+  {
+    slug: "garment-printing",
+    name: "Garments Printing",
+    category: "Apparel",
+    description:
+      "Professional garment branding services for uniforms, corporate wear, promotional clothing, events, and marketing campaigns.",
+    intro:
+      "Branded uniforms and corporate wear that staff are proud to wear. We handle T-shirts, polos, shirts, hoodies, aprons, overalls and dust coats using embroidery, screen printing and heat transfer.",
+    metaTitle: "Garment Printing & Uniform Branding in Kenya | DCC",
+    metaDescription:
+      "Custom T-shirts, polos, hoodies, aprons, overalls and corporate uniforms branded in Nairobi using embroidery and screen printing.",
+    image: "/project/services/garments.webp",
+    gallery: garmentGallery,
+    features: [
+      "T-Shirts",
+      "Polo Shirts",
+      "Corporate Shirts",
+      "Hoodies",
+      "Aprons",
+      "Overalls",
+      "Dust Coats",
+      "Drawstring Bags",
+      "Towels",
+    ],
+    outcomes: [
+      "Garment selection and sizing",
+      "Logo placement mock-ups",
+      "Sampling before bulk run",
+      "Production and delivery",
+    ],
+    faq: [
+      {
+        question: "Embroidery or print — which should I choose?",
+        answer:
+          "Embroidery is durable and premium for polos and shirts. Screen printing suits larger graphics and bulk T-shirts. We will recommend the best method for your design and budget.",
+      },
+      {
+        question: "Can I mix sizes in one order?",
+        answer:
+          "Yes. We can produce mixed-size orders as long as the total quantity meets the minimum for your chosen garment.",
+      },
+    ],
+  },
+  {
+    slug: "exhibition-event-branding",
+    name: "Exhibition & Event Branding",
+    category: "Branding",
+    description:
+      "Complete exhibition branding solutions that help businesses attract attention and create memorable event experiences.",
+    intro:
+      "Stand out at trade shows, conferences and activations. We produce exhibition stands, pop-up displays, roll-up banners, X-banners and teardrop flags — delivered on time and ready to install.",
+    metaTitle: "Exhibition & Event Branding in Nairobi | DCC",
+    metaDescription:
+      "Exhibition stands, pop-up displays, roll-up banners, X-banners and teardrop flags produced in Nairobi by Depot Covers Company.",
+    image: "/project/services/events.webp",
+    gallery: eventGallery,
+    features: [
+      "Exhibition Stands",
+      "Pop-Up Displays",
+      "Roll-Up Banners",
+      "X-Banners",
+      "Teardrop Flags",
+      "Reflective Signs",
+    ],
+    outcomes: [
+      "Event artwork and layout",
+      "Display hardware selection",
+      "Production and quality checks",
+      "Delivery before your event",
+    ],
+    faq: [
+      {
+        question: "How early should I order event branding?",
+        answer:
+          "We recommend 7–10 working days before your event. Urgent orders can often be accommodated — call us to confirm availability.",
+      },
+      {
+        question: "Are the displays reusable?",
+        answer:
+          "Yes. Our pop-up and roll-up systems are designed for repeated use, with replaceable printed panels.",
+      },
+    ],
+  },
+  {
+    slug: "office-interior-branding",
+    name: "Office & Interior Branding",
+    category: "Branding",
+    description:
+      "Transform workspaces into visually engaging environments that reflect your company's identity while enhancing customer experience.",
+    intro:
+      "Bring your brand into the workplace with wall graphics, reception branding, frosted glass film, window graphics and wayfinding. Ideal for offices, showrooms, clinics and retail spaces.",
+    metaTitle: "Office & Interior Branding in Nairobi | DCC",
+    metaDescription:
+      "Wall graphics, reception branding, frosted glass film, window graphics and office wayfinding installed in Nairobi by DCC.",
+    image: "/project/services/office.webp",
+    gallery: officeGallery,
+    features: [
+      "Wall Graphics",
+      "Reception Branding",
+      "Frosted Glass Branding",
+      "Window Graphics",
+      "Office Wayfinding",
+      "Car Stickers",
+    ],
+    outcomes: [
+      "Space measurement and survey",
+      "Material and finish selection",
+      "Artwork and proofs",
+      "Professional installation",
+    ],
+    faq: [
+      {
+        question: "Will the graphics damage our walls or glass?",
+        answer:
+          "We use materials suited to each surface, including removable options for glass and painted walls. Our team will advise on the best finish for your space.",
+      },
+      {
+        question: "Can you work after hours?",
+        answer:
+          "Yes. For occupied offices we can arrange evening or weekend installation to avoid disrupting your team.",
+      },
+    ],
+  },
+  {
+    slug: "outdoor-branding",
+    name: "Outdoor Branding",
+    category: "Outdoor Branding",
+    description:
+      "Large-format branding solutions built to maximize visibility and deliver high-impact advertising for businesses.",
+    intro:
+      "Billboards, building wraps, banners, backlit banners and construction site branding produced for maximum visibility in Kenyan weather. We handle large-format production and installation.",
+    metaTitle: "Outdoor Branding & Large Format Printing in Kenya | DCC",
+    metaDescription:
+      "Billboards, building wraps, banners, backlit banners and construction site branding produced and installed across Kenya by DCC.",
+    image: "/project/services/outd1.webp",
+    gallery: outdoorGallery,
+    features: [
+      "Lightbox Signs",
+      "Billboards",
+      "Banners",
+      "Backlit Banners",
+      "Construction Site Branding",
+      "Building Wraps",
+    ],
+    outcomes: [
+      "Site assessment and measurements",
+      "Weather-ready material selection",
+      "Large-format production",
+      "Installation and finishing",
+    ],
+    faq: [
+      {
+        question: "What is the largest format you can print?",
+        answer:
+          "We produce large-format work in panels and join them cleanly for billboards and building wraps. Share the dimensions for a production plan.",
+      },
+      {
+        question: "Are outdoor materials weather resistant?",
+        answer:
+          "Yes. We specify UV- and weather-resistant materials suited to outdoor use in Kenya.",
+      },
+    ],
+  },
+  {
+    slug: "cnc-laser-branding",
+    name: "CNC & Laser Branding",
+    category: "Branding",
+    description:
+      "Precision CNC routing and laser cutting services for premium branded signage, displays, and custom fabricated products.",
+    intro:
+      "Precision-cut acrylic, metal and wood for premium signage and display work. Our CNC and laser capabilities cover 3D letters, plaques, name plates, display stands and custom stencils.",
+    metaTitle: "CNC & Laser Cutting for Branding in Nairobi | DCC",
+    metaDescription:
+      "Precision CNC routing and laser cutting in Nairobi for acrylic signs, metal name plates, wooden plaques, 3D lettering and display stands.",
+    image: "/project/services/c1.webp",
+    gallery: cncGallery,
+    features: [
+      "Acrylic Signs",
+      "Metal Name Plates",
+      "Wooden Plaques",
+      "3D Letter Signage",
+      "Directional Signs",
+      "Custom Stencils",
+      "Display Stands",
+      "Key Holders",
+    ],
+    outcomes: [
+      "Material and finish consultation",
+      "CAD cutting files",
+      "Precision production",
+      "Assembly and finishing",
+    ],
+    faq: [
+      {
+        question: "What materials can you cut?",
+        answer:
+          "We work with acrylic, wood, MDF, PVC and selected metals. Send your design and intended use and we will recommend the right material.",
+      },
+      {
+        question: "Can you produce a one-off piece?",
+        answer:
+          "Yes. CNC and laser work is well suited to one-off custom pieces as well as small production runs.",
+      },
+    ],
+  },
+];
+
+export function getService(slug: string | undefined) {
+  if (!slug) return undefined;
+  return services.find((service) => service.slug === slug);
+}

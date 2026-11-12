@@ -20,14 +20,14 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14">
           <div className="max-w-3xl">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
               Our Work
             </span>
 
             <h2 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-[1.05]">
               Designed to make
               <br />
-              <span className="text-neutral-400">an impression.</span>
+              <span className="text-neutral-600">an impression.</span>
             </h2>
           </div>
 
@@ -95,7 +95,7 @@ export default function PortfolioGrid({ projects }: PortfolioGridProps) {
                   )}
                 </div>
 
-                <span className="mt-1 shrink-0 text-xs font-medium uppercase tracking-[0.15em] text-neutral-400">
+                <span className="mt-1 shrink-0 text-xs font-medium uppercase tracking-[0.15em] text-neutral-600">
                   {project.category}
                 </span>
               </div>

@@ -4,33 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-const faqs = [
-  {
-    question: "How long does a typical project take?",
-    answer: "Depending on scope, most projects take 5–15 business days from approval to delivery."
-  },
-  {
-    question: "Do you offer design services if I don't have artwork?",
-    answer: "Yes! Our in-house design team handles everything from concept to final artwork."
-  },
-  {
-    question: "What information do I need to provide to get started?",
-    answer: "Just your brand brief, preferred colors, logo files (if available), and project requirements."
-  },
-  {
-    question: "Do you offer bulk order discounts?",
-    answer: "Absolutely. We offer competitive pricing for bulk orders across all our services."
-  },
-  {
-    question: "What file formats do you accept for printing?",
-    answer: "We accept PDF, AI, PSD, PNG, and JPEG files. High-resolution files (300 DPI+) are recommended."
-  },
-  {
-    question: "Can I get a sample before the full production run?",
-    answer: "Yes, we can provide physical samples or proofs before full production upon request."
-  }
-];
+import { PROCESS_FAQS } from "@/data/faqs";
 
 export default function ProcessFaq() {
   return (
@@ -42,7 +16,7 @@ export default function ProcessFaq() {
         </div>
 
         <Accordion type="single" collapsible className="w-full space-y-4">
-          {faqs.map((faq, index) => (
+          {PROCESS_FAQS.map((faq, index) => (
             <AccordionItem 
               key={index} 
               value={`item-${index}`}

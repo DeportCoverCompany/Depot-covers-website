@@ -8,25 +8,25 @@ const projects = [
   {
     title: "Supa Flame Gas Solutions Rebranding",
     category: "Branding",
-    img: "/project/portfolio-preview/photo1.jpeg",
+    img: "/project/portfolio-preview/photo1.webp",
     alt: "Supa Flame Gas Solutions Rebranding",
   },
   {
     title: "Regent Auto Valuers",
     category: "Branding",
-    img: "/project/portfolio-preview/photo2.jpeg",
+    img: "/project/portfolio-preview/photo2.webp",
     alt: "Regent Auto Valuers",
   },
   {
     title: "Olyx Gas Rebranding",
     category: "Branding",
-    img: "/project/portfolio-preview/photo3.jpeg",
+    img: "/project/portfolio-preview/photo3.webp",
     alt: "Olyx Gas Rebranding",
   },
   {
     title: "Otrovato Rebranding",
     category: "Branding",
-    img: "/project/portfolio-preview/photo4.jpeg",
+    img: "/project/portfolio-preview/photo4.webp",
     alt: "Otrovato Rebranding",
   },
 ];
@@ -79,6 +79,10 @@ export default function PortfolioPreview() {
                 transition={{ duration: 0.5 }}
                 className="absolute inset-0 w-full h-full object-cover"
                 alt={projects[index].alt}
+                width={1200}
+                height={750}
+                loading="lazy"
+                decoding="async"
               />
             </AnimatePresence>
 
@@ -97,15 +101,19 @@ export default function PortfolioPreview() {
           {/* Controls */}
           <div className="absolute inset-0 flex items-center justify-between px-4">
             <button
+              type="button"
               onClick={prev}
-              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur hover:bg-white flex items-center justify-center shadow"
+              aria-label="Previous project"
+              className="w-11 h-11 rounded-full bg-white/80 backdrop-blur hover:bg-white flex items-center justify-center shadow"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
             <button
+              type="button"
               onClick={next}
-              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur hover:bg-white flex items-center justify-center shadow"
+              aria-label="Next project"
+              className="w-11 h-11 rounded-full bg-white/80 backdrop-blur hover:bg-white flex items-center justify-center shadow"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -116,11 +124,14 @@ export default function PortfolioPreview() {
             {projects.map((_, i) => (
               <button
                 key={i}
+                type="button"
                 onClick={() => setIndex(i)}
-                className={`h-2 rounded-full transition-all ${
+                aria-label={`Show project ${i + 1}`}
+                aria-current={i === index}
+                className={`h-2.5 rounded-full transition-all ${
                   i === index
                     ? "w-6 bg-primary"
-                    : "w-2 bg-gray-300 hover:bg-gray-400"
+                    : "w-3 bg-gray-400 hover:bg-gray-500"
                 }`}
               />
             ))}

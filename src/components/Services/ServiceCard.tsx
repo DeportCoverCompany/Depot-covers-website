@@ -19,6 +19,7 @@ interface ServiceCardProps {
   img_url: string;
   gallery?: string[];
   features: string[];
+  slug?: string;
 }
 
 export default function ServiceCard({
@@ -28,6 +29,7 @@ export default function ServiceCard({
   img_url,
   gallery = [],
   features,
+  slug,
 }: ServiceCardProps) {
   const [showAll, setShowAll] = useState(false);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
@@ -61,7 +63,11 @@ export default function ServiceCard({
         <div className="relative h-56 overflow-hidden">
           <img
             src={img_url}
-            alt={name}
+            alt={`${name} project by Depot Covers Company in Nairobi`}
+            width={800}
+            height={600}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
 
@@ -133,8 +139,17 @@ export default function ServiceCard({
           )}
 
           {/* Footer */}
-          <div className="mt-auto">
-            <Link to="/contact">
+          <div className="mt-auto space-y-2">
+            {slug && (
+              <Link
+                to={`/services/${slug}`}
+                className="inline-flex min-h-[28px] items-center gap-1 py-1 text-sm font-semibold text-primary hover:text-accent transition-colors"
+              >
+                View service details
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            )}
+            <Link to={slug ? `/contact?service=${slug}` : "/contact"}>
               <Button className="w-full bg-accent hover:bg-accent/90 text-white font-bold h-11 group/btn">
                 Request a Quote
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
@@ -169,6 +184,7 @@ export default function ServiceCard({
               <img
                 src={photos[currentPhoto]}
                 alt={`${name} - Photo ${currentPhoto + 1}`}
+                decoding="async"
                 className="max-h-[70vh] max-w-full object-contain rounded-xl"
               />
 
@@ -220,6 +236,10 @@ export default function ServiceCard({
                     <img
                       src={photo}
                       alt=""
+                      width={80}
+                      height={80}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </button>

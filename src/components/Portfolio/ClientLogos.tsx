@@ -4,23 +4,23 @@ export default function ClientLogos() {
   const clients = [
     {
       name: "Client One",
-      logo: "/project/companieslogo/logo1.jpeg",
+      logo: "/project/companieslogo/logo1.webp",
     },
     {
       name: "Client One",
-      logo: "/project/companieslogo/logo2.jpeg",
+      logo: "/project/companieslogo/logo2.webp",
     },
     {
       name: "Client One",
-      logo: "/project/companieslogo/logo3.jpeg",
+      logo: "/project/companieslogo/logo3.webp",
     },
     {
       name: "Client One",
-      logo: "/project/companieslogo/logo4.jpeg",
+      logo: "/project/companieslogo/logo4.webp",
     },
     {
       name: "Client One",
-      logo: "/project/companieslogo/logo5.jpeg",
+      logo: "/project/companieslogo/logo5.webp",
     },
   ];
 
@@ -30,7 +30,7 @@ export default function ClientLogos() {
         {/* Header */}
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-400">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600">
               Our Clients
             </p>
 
@@ -49,8 +49,12 @@ export default function ClientLogos() {
             >
               <img
                 src={client.logo}
-                alt={`${client.name} logo`}
-                className="max-h-12 w-auto max-w-[140px] object-contain   transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                alt="Client logo"
+                width={140}
+                height={48}
+                loading="lazy"
+                decoding="async"
+                className="max-h-12 w-auto max-w-[140px] object-contain transition-all duration-500 group-hover:scale-105"
               />
             </div>
           ))}

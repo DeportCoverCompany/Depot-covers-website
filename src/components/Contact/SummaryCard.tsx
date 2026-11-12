@@ -79,7 +79,7 @@ export default function SummaryCard({ form }: SummaryCardProps) {
                 {values.services.map((service) => (
                   <span
                     key={service}
-                    className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1 font-medium"
+                    className="rounded-full bg-accent/10 text-accent-strong text-xs px-3 py-1 font-medium"
                   >
                     {service}
                   </span>

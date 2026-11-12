@@ -42,7 +42,9 @@ export default function TestimonialsSection() {
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-3">
-                <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full border-2 border-white shadow-sm" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-primary/10 text-base font-bold text-primary shadow-sm">
+                  {t.name.charAt(0)}
+                </div>
                 <div>
                   <h4 className="text-sm font-bold text-primary">{t.name}</h4>
                   <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">{t.role}</p>

@@ -37,9 +37,11 @@ export default function ContactTestimonials() {
                 </div>
                 <p className="text-foreground/80 italic mb-6">"{t.quote}"</p>
                 <div className="flex items-center gap-3">
-                  <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full bg-muted shadow-inner" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary">
+                    {t.name.charAt(0)}
+                  </div>
                   <div>
-                    <h4 className="font-bold text-sm text-primary">{t.name}</h4>
+                    <h3 className="font-bold text-sm text-primary">{t.name}</h3>
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">{t.role}</p>
                   </div>
                 </div>

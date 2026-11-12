@@ -11,7 +11,7 @@ const steps = [
       "Brand audit and briefing",
       "Timeline and budget alignment"
     ],
-    imagePrompt: "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_ebe6c23405_53db6bd9e31b8fd8.png"
+    imagePrompt: "/project/process-consultation.webp"
   },
   {
     number: "02",
@@ -23,7 +23,7 @@ const steps = [
       "Design drafts and revisions",
       "Client approval and sign-off"
     ],
-    imagePrompt: "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_83a85449ad_7db9cf89d9b597d3.png"
+    imagePrompt: "/project/process-design.webp"
   },
   {
     number: "03",
@@ -35,7 +35,7 @@ const steps = [
       "Precision printing and manufacturing",
       "Quality control inspection"
     ],
-    imagePrompt: "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_deb4a93cbc_70c329bea5360d9d.png"
+    imagePrompt: "/project/process-production.webp"
   },
   {
     number: "04",
@@ -47,7 +47,7 @@ const steps = [
       "Careful packaging and logistics",
       "Post-delivery support and follow-up"
     ],
-    imagePrompt: "https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_4e96e78384_e900440a08e29b27.png"
+    imagePrompt: "/project/process-delivery.webp"
   }
 ];
 
@@ -103,7 +103,15 @@ export default function ProcessOverview() {
                     </div>
 
                     <div className="rounded-2xl overflow-hidden aspect-video lg:aspect-square relative group/img shadow-md">
-                      <img src={step.imagePrompt} className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" />
+                      <img
+                        src={step.imagePrompt}
+                        alt={`${step.title} stage of the DCC branding process`}
+                        width={800}
+                        height={800}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity" />
                     </div>
                   </div>

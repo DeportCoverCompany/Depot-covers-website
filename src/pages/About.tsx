@@ -8,20 +8,16 @@ import CoreValues from "@/components/About/CoreValues";
 import TeamSection from "@/components/About/TeamSection";
 import TestimonialQuote from "@/components/About/TestimonialQuote";
 import AboutCta from "@/components/About/AboutCta";
-import { Helmet } from "react-helmet-async";
+import SEO from "@/components/SEO";
 
 export default function About() {
   return (
     <>
-      <Helmet>
-        <title>
-          Depot Covers Company (DCC) — Branding & Printing Solutions Kenya
-        </title>
-        <meta
-          name="description"
-          content="Depot Covers Company (DCC) — Branding & Printing Solutions Kenya"
-        />
-      </Helmet>
+      <SEO
+        title="About Depot Covers Company (DCC) | Nairobi"
+        description="Meet the team behind DCC — a Nairobi branding and printing company helping businesses stand out with signage, print, uniforms and promotional items."
+        path="/about"
+      />
 
       <div className="flex flex-col min-h-screen">
         <Navbar />

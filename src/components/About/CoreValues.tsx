@@ -50,7 +50,7 @@ export default function CoreValues() {
     <section className="bg-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block px-3 py-1 rounded bg-accent/10 text-accent text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-block px-3 py-1 rounded bg-accent/10 text-accent-strong text-xs font-bold uppercase tracking-wider mb-4">
             Our Values
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary mb-6">
